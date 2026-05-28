@@ -1,0 +1,3 @@
+/home/pcsdocker/Data/CircuitsProject/BuildProject/CMakeFiles/circuiti.dir
+/home/pcsdocker/Data/CircuitsProject/BuildProject/CMakeFiles/edit_cache.dir
+/home/pcsdocker/Data/CircuitsProject/BuildProject/CMakeFiles/rebuild_cache.dir
