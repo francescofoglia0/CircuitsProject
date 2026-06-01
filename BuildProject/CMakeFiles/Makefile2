@@ -64,10 +64,12 @@ CMAKE_BINARY_DIR = /home/pcsdocker/Data/CircuitsProject/BuildProject
 
 # The main recursive "all" target.
 all: CMakeFiles/circuiti.dir/all
+all: CMakeFiles/test_circ.dir/all
 .PHONY : all
 
 # The main recursive "codegen" target.
 codegen: CMakeFiles/circuiti.dir/codegen
+codegen: CMakeFiles/test_circ.dir/codegen
 .PHONY : codegen
 
 # The main recursive "preinstall" target.
@@ -76,6 +78,7 @@ preinstall:
 
 # The main recursive "clean" target.
 clean: CMakeFiles/circuiti.dir/clean
+clean: CMakeFiles/test_circ.dir/clean
 .PHONY : clean
 
 #=============================================================================
@@ -109,6 +112,38 @@ CMakeFiles/circuiti.dir/codegen:
 CMakeFiles/circuiti.dir/clean:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/circuiti.dir/build.make CMakeFiles/circuiti.dir/clean
 .PHONY : CMakeFiles/circuiti.dir/clean
+
+#=============================================================================
+# Target rules for target CMakeFiles/test_circ.dir
+
+# All Build rule for target.
+CMakeFiles/test_circ.dir/all:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_circ.dir/build.make CMakeFiles/test_circ.dir/depend
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_circ.dir/build.make CMakeFiles/test_circ.dir/build
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/pcsdocker/Data/CircuitsProject/BuildProject/CMakeFiles --progress-num=3,4 "Built target test_circ"
+.PHONY : CMakeFiles/test_circ.dir/all
+
+# Build rule for subdir invocation for target.
+CMakeFiles/test_circ.dir/rule: cmake_check_build_system
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/pcsdocker/Data/CircuitsProject/BuildProject/CMakeFiles 2
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 CMakeFiles/test_circ.dir/all
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/pcsdocker/Data/CircuitsProject/BuildProject/CMakeFiles 0
+.PHONY : CMakeFiles/test_circ.dir/rule
+
+# Convenience name for target.
+test_circ: CMakeFiles/test_circ.dir/rule
+.PHONY : test_circ
+
+# codegen rule for target.
+CMakeFiles/test_circ.dir/codegen:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_circ.dir/build.make CMakeFiles/test_circ.dir/codegen
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/pcsdocker/Data/CircuitsProject/BuildProject/CMakeFiles --progress-num=3,4 "Finished codegen for target test_circ"
+.PHONY : CMakeFiles/test_circ.dir/codegen
+
+# clean rule for target.
+CMakeFiles/test_circ.dir/clean:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_circ.dir/build.make CMakeFiles/test_circ.dir/clean
+.PHONY : CMakeFiles/test_circ.dir/clean
 
 #=============================================================================
 # Special targets to cleanup operation of make.

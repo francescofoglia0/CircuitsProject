@@ -129,6 +129,19 @@ circuiti/fast:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/circuiti.dir/build.make CMakeFiles/circuiti.dir/build
 .PHONY : circuiti/fast
 
+#=============================================================================
+# Target rules for targets named test_circ
+
+# Build rule for target.
+test_circ: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 test_circ
+.PHONY : test_circ
+
+# fast build rule for target.
+test_circ/fast:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_circ.dir/build.make CMakeFiles/test_circ.dir/build
+.PHONY : test_circ/fast
+
 main.o: main.cpp.o
 .PHONY : main.o
 
@@ -153,6 +166,30 @@ main.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/circuiti.dir/build.make CMakeFiles/circuiti.dir/main.cpp.s
 .PHONY : main.cpp.s
 
+test_circuiti.o: test_circuiti.cpp.o
+.PHONY : test_circuiti.o
+
+# target to build an object file
+test_circuiti.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_circ.dir/build.make CMakeFiles/test_circ.dir/test_circuiti.cpp.o
+.PHONY : test_circuiti.cpp.o
+
+test_circuiti.i: test_circuiti.cpp.i
+.PHONY : test_circuiti.i
+
+# target to preprocess a source file
+test_circuiti.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_circ.dir/build.make CMakeFiles/test_circ.dir/test_circuiti.cpp.i
+.PHONY : test_circuiti.cpp.i
+
+test_circuiti.s: test_circuiti.cpp.s
+.PHONY : test_circuiti.s
+
+# target to generate assembly for a file
+test_circuiti.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_circ.dir/build.make CMakeFiles/test_circ.dir/test_circuiti.cpp.s
+.PHONY : test_circuiti.cpp.s
+
 # Help Target
 help:
 	@echo "The following are some of the valid targets for this Makefile:"
@@ -162,9 +199,13 @@ help:
 	@echo "... edit_cache"
 	@echo "... rebuild_cache"
 	@echo "... circuiti"
+	@echo "... test_circ"
 	@echo "... main.o"
 	@echo "... main.i"
 	@echo "... main.s"
+	@echo "... test_circuiti.o"
+	@echo "... test_circuiti.i"
+	@echo "... test_circuiti.s"
 .PHONY : help
 
 

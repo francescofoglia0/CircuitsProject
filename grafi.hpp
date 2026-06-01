@@ -17,7 +17,7 @@ class unidirected_edge
         std::string nome;
     public:
         unidirected_edge() = default;
-        unidirected_edge(const T& a, const T& b,const std::string& n )
+        unidirected_edge(const T& a, const T& b,const std::string& n ="")
         {
             nome = n;
             if(a>b)
@@ -117,6 +117,20 @@ class unidirected_graph
                 nadiacenti[newarc.to()].insert(newarc.from());
                 pesimap[newarc] = 1;
             }
+        }
+
+        void rm_edge(const unidirected_edge<T>& oldarc)
+        {
+            //se l'arco non esiste nel set di archi non faccio nulla
+            if(archi.find(oldarc) == archi.end()) 
+                return;
+            //altrmenti elimino l'arco dal set di archi, e elimino i nodi adiacenti e il peso
+            auto u = oldarc.from();
+            auto v = oldarc.to();
+            archi.erase(oldarc);
+            nadiacenti[u].erase(v);
+            nadiacenti[v].erase(u);
+            pesimap.erase(oldarc);
         }
 
         

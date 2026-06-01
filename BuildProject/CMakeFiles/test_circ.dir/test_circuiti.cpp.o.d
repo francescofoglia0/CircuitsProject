@@ -1,6 +1,7 @@
-CMakeFiles/circuiti.dir/main.cpp.o: \
- /home/pcsdocker/Data/CircuitsProject/main.cpp /usr/include/stdc-predef.h \
- /usr/include/c++/14/iostream /usr/include/c++/14/bits/requires_hosted.h \
+CMakeFiles/test_circ.dir/test_circuiti.cpp.o: \
+ /home/pcsdocker/Data/CircuitsProject/test_circuiti.cpp \
+ /usr/include/stdc-predef.h /usr/include/c++/14/iostream \
+ /usr/include/c++/14/bits/requires_hosted.h \
  /usr/include/x86_64-linux-gnu/c++/14/bits/c++config.h \
  /usr/include/x86_64-linux-gnu/c++/14/bits/os_defines.h \
  /usr/include/features.h /usr/include/features-time64.h \
@@ -162,7 +163,12 @@ CMakeFiles/circuiti.dir/main.cpp.o: \
  /usr/include/c++/14/bits/locale_facets.tcc \
  /usr/include/c++/14/bits/basic_ios.tcc \
  /usr/include/c++/14/bits/ostream.tcc /usr/include/c++/14/istream \
- /usr/include/c++/14/bits/istream.tcc \
+ /usr/include/c++/14/bits/istream.tcc /usr/include/c++/14/cassert \
+ /usr/include/assert.h /usr/include/c++/14/vector \
+ /usr/include/c++/14/bits/stl_uninitialized.h \
+ /usr/include/c++/14/bits/stl_vector.h \
+ /usr/include/c++/14/bits/stl_bvector.h \
+ /usr/include/c++/14/bits/vector.tcc \
  /home/pcsdocker/Data/CircuitsProject/grafi.hpp /usr/include/c++/14/list \
  /usr/include/c++/14/bits/stl_list.h \
  /usr/include/c++/14/bits/allocated_ptr.h \
@@ -180,22 +186,13 @@ CMakeFiles/circuiti.dir/main.cpp.o: \
  /usr/include/c++/14/bits/hashtable.h \
  /usr/include/c++/14/bits/hashtable_policy.h \
  /usr/include/c++/14/bits/enable_special_members.h \
- /home/pcsdocker/Data/CircuitsProject/parser.hpp \
- /usr/include/c++/14/fstream /usr/include/c++/14/bits/codecvt.h \
- /usr/include/x86_64-linux-gnu/c++/14/bits/basic_file.h \
- /usr/include/x86_64-linux-gnu/c++/14/bits/c++io.h \
- /usr/include/c++/14/bits/fstream.tcc \
- /home/pcsdocker/Data/CircuitsProject/grafodot.hpp \
  /home/pcsdocker/Data/CircuitsProject/visite.hpp \
  /home/pcsdocker/Data/CircuitsProject/lifofifo.hpp \
  /usr/include/c++/14/stack /usr/include/c++/14/deque \
- /usr/include/c++/14/bits/stl_uninitialized.h \
  /usr/include/c++/14/bits/stl_deque.h /usr/include/c++/14/bits/deque.tcc \
  /usr/include/c++/14/bits/stl_stack.h /usr/include/c++/14/queue \
- /usr/include/c++/14/vector /usr/include/c++/14/bits/stl_vector.h \
- /usr/include/c++/14/bits/stl_bvector.h \
- /usr/include/c++/14/bits/vector.tcc /usr/include/c++/14/bits/stl_heap.h \
- /usr/include/c++/14/bits/stl_queue.h /usr/include/c++/14/limits \
+ /usr/include/c++/14/bits/stl_heap.h /usr/include/c++/14/bits/stl_queue.h \
+ /usr/include/c++/14/limits \
  /home/pcsdocker/Data/CircuitsProject/algoritmi_circuiti.hpp \
  /usr/include/eigen3/Eigen/Dense /usr/include/eigen3/Eigen/Core \
  /usr/include/eigen3/Eigen/src/Core/util/DisableStupidWarnings.h \
@@ -231,7 +228,6 @@ CMakeFiles/circuiti.dir/main.cpp.o: \
  /usr/include/c++/14/stdlib.h /usr/include/c++/14/complex \
  /usr/include/c++/14/sstream /usr/include/c++/14/bits/sstream.tcc \
  /usr/include/eigen3/Eigen/src/Core/util/MKL_support.h \
- /usr/include/c++/14/cassert /usr/include/assert.h \
  /usr/include/c++/14/functional /usr/include/c++/14/bits/std_function.h \
  /usr/include/c++/14/array /usr/include/c++/14/cstring \
  /usr/include/string.h /usr/include/strings.h /usr/include/c++/14/climits \

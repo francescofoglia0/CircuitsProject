@@ -45,6 +45,5 @@ unidirected_graph<int, double> leggi_circuito(const std::string& nome_file) {
         std::cerr << "Errore, impossibile aprire il file " << nome_file << std::endl;
     }
     
-    // Restituiamo il grafo costruito
     return circuito;
 }
