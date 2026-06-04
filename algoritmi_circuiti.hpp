@@ -44,7 +44,8 @@ vector<vector<int>> dfs_cicli(const unidirected_graph<int,double>& G,const unidi
 
         //findpath modifica il path
         if(findpath(T,u,v,visited,path))
-        {
+        {   
+            path.push_back(u);//inserisco il nodo iniziale alla fine in modo da usare il codice per risolvere il sistema
         //se findpath mi restituisce vero allora inserisco quel ciclo trovato nel vettore di cicli
             lista_cicli.push_back(path);
         }
@@ -194,11 +195,15 @@ vector<Eigen::VectorXi> de_pina(const unidirected_graph<int,double>& G,const uni
         //che ha 1 in posizione i se l'arco in posizione i nel grafo originale, è presente nel 
         //ciclo minimo trovato
         Eigen::VectorXi Cj = Eigen::VectorXi::Zero(G.all_edges().size());
+        //creiamo un vettore per salvare il ciclo come sequenza di nodi
+        Eigen::VectorXi ciclo_minimo = Eigen::VectorXi::Zero(taglia);
+        int u_orig;
+        int v_orig;
         for(size_t i = 0; i<taglia-1; i++)
         {   
             //riportiamo i nodi alla loro forma non duplicata
-            int u_orig = migliore[i];
-            int v_orig = migliore[i+1];
+            u_orig = migliore[i];
+            v_orig = migliore[i+1];
             if(u_orig>n)
             {
                 u_orig -= n;
@@ -210,11 +215,15 @@ vector<Eigen::VectorXi> de_pina(const unidirected_graph<int,double>& G,const uni
             unidirected_edge<int> e = {u_orig,v_orig};
             int indice = G.edge_number(e); //trovo a quale riga corrisponde l'arco
             Cj(indice) = 1; //quell'arco trovato vale 1 nel ciclo Cj
+            ciclo_minimo(i) = u_orig;
         }
-        //inserisco Cj nella Base 
-        B.push_back(Cj);
+        //inserisco l'ultimo elemento di migliore nel ciclo_minimo(il primo elemento del ciclo)
+        ciclo_minimo(taglia-1) = v_orig;
+        //inserisco il ciclo minimo nella Base 
+        B.push_back(ciclo_minimo);
+        
 
-        //ci vogliamo assicurarci che i cicli da cercare siano linearmente indipendenti
+        //ci vogliamo assicurare che i cicli da cercare siano linearmente indipendenti
         for(size_t h =j+1; h<k; h++)
         {   
             //prodotto scalare modulo 2 tra il ciclo trovato e le colonne restanti di S

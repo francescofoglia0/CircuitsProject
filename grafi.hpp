@@ -61,8 +61,6 @@ class unidirected_edge
             }
             else return false;
         }   
-
-
 };
 
 // se mettessimo dentro la classe unidirected_edge prenderebbe come elemento di sinistra un tipo arco
@@ -85,6 +83,7 @@ class unidirected_graph
         set<T> nodi;    //per allnodes(), set(nodi)
         map<T,set<T>> nadiacenti; //per neighours(), chiave è nodo
         map<unidirected_edge<T>,P> pesimap; //il valore associato a un arco è il peso 
+        int n_resistenze = 0;
         public:
         unidirected_graph()=default;
         unidirected_graph(const unidirected_graph& other)
@@ -93,6 +92,7 @@ class unidirected_graph
             nodi = other.nodi;
             nadiacenti = other.nadiacenti;
             pesimap = other.pesimap;
+            n_resistenze = other.n_resistenze;
         }
 
         set<T> neighours(const T& nodo) const
@@ -116,6 +116,10 @@ class unidirected_graph
                 nadiacenti[newarc.from()].insert(newarc.to());
                 nadiacenti[newarc.to()].insert(newarc.from());
                 pesimap[newarc] = 1;
+                if(!newarc.get_name().empty() && newarc.get_name()[0] == 'R')
+                {
+                    n_resistenze++;
+                }
             }
         }
 
@@ -131,6 +135,10 @@ class unidirected_graph
             nadiacenti[u].erase(v);
             nadiacenti[v].erase(u);
             pesimap.erase(oldarc);
+            if(!oldarc.get_name().empty() && oldarc.get_name()[0]=='R')
+            {
+                n_resistenze--;
+            }
         }
 
         
@@ -209,6 +217,8 @@ class unidirected_graph
             std::cerr << "Errore: stai cercando di leggere il peso di un arco inesistente "<<arc<<endl;
             std::abort(); //interrompo il programma se viene passato un arco inesistente
         }
+
+        int get_resistenze() const {return n_resistenze;};
 
 };
 

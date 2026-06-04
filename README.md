@@ -17,3 +17,8 @@ Per trovare i cicli minimi con de pina dobbiamo trovare i cicli minimi (bisogna 
 Implementazione dello "Sdoppiamento" (Lifting Topologico): Per creare il grafo di supporto $G'$ (con i nodi sdoppiati $v^+$ e $v^-$) abbiamo scelto la via più semplice e meno invasiva: invece di creare una nuova classe Nodo, abbiamo semplicemente sommato $N$ (il numero totale dei nodi) all'indice originale ($v+N$). Questo ci ha permesso di riutilizzare la classe unidirected_graph esattamente com'era.
 Abbiamo preso la decisione di design di far restituire alla BFS una semplice lista di nodi e di fare la conversione nel vettore binario di Eigen (0 e 1) solo alla fine, unicamente per il percorso vincente. Questo ha evitato che il programma perdesse tempo a costruire e manipolare enormi matrici per tentativi (percorsi) che sarebbero stati scartati.
 Early-Exit nella Ricerca: Abbiamo implementato un'uscita anticipata (break) nella BFS non appena tocca il nodo di destinazione, evitando di esplorare inutilmente il resto della componente connessa.
+
+abbiamo aggiunto get_nome nella classe di archi per vedere se abbiamo una resistenza o meno, per poi incrementare nella classe grafo  il numero di resistenza, aggiunto funzione get resistenze e cambianto remove edge
+
+
+///implementare la soluzoine dei sistemi nel hpp, modificare eigen se serve, commentare e osservazioni

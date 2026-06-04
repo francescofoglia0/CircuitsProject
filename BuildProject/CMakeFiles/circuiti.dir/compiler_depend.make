@@ -7,6 +7,7 @@ CMakeFiles/circuiti.dir/main.cpp.o: /home/pcsdocker/Data/CircuitsProject/main.cp
   /home/pcsdocker/Data/CircuitsProject/grafodot.hpp \
   /home/pcsdocker/Data/CircuitsProject/lifofifo.hpp \
   /home/pcsdocker/Data/CircuitsProject/parser.hpp \
+  /home/pcsdocker/Data/CircuitsProject/sistemi_lineari.hpp \
   /home/pcsdocker/Data/CircuitsProject/visite.hpp \
   /usr/include/alloca.h \
   /usr/include/asm-generic/bitsperlong.h \
@@ -1084,10 +1085,6 @@ CMakeFiles/circuiti.dir/main.cpp.o:
 
 /usr/include/c++/14/bits/localefwd.h:
 
-/usr/include/x86_64-linux-gnu/bits/long-double.h:
-
-/usr/include/c++/14/stdlib.h:
-
 /home/pcsdocker/Data/CircuitsProject/parser.hpp:
 
 /usr/include/eigen3/Eigen/src/Core/products/SelfadjointMatrixMatrix.h:
@@ -1118,6 +1115,14 @@ CMakeFiles/circuiti.dir/main.cpp.o:
 
 /home/pcsdocker/Data/CircuitsProject/lifofifo.hpp:
 
+/usr/include/c++/14/bits/stringfwd.h:
+
+/usr/include/x86_64-linux-gnu/bits/floatn-common.h:
+
+/usr/include/c++/14/bits/locale_facets.tcc:
+
+/usr/include/c++/14/bits/exception_ptr.h:
+
 /usr/include/c++/14/bits/stl_tree.h:
 
 /usr/lib/gcc/x86_64-linux-gnu/14/libgcc_s.so:
@@ -1134,18 +1139,6 @@ CMakeFiles/circuiti.dir/main.cpp.o:
 
 /usr/include/eigen3/Eigen/src/Core/PlainObjectBase.h:
 
-/usr/include/eigen3/Eigen/src/Core/functors/AssignmentFunctors.h:
-
-/usr/include/c++/14/array:
-
-/usr/include/eigen3/Eigen/src/Core/util/ForwardDeclarations.h:
-
-/usr/include/c++/14/bits/hashtable.h:
-
-/usr/include/eigen3/Eigen/src/misc/Kernel.h:
-
-/usr/include/c++/14/concepts:
-
 /usr/include/c++/14/bits/exception.h:
 
 /usr/include/x86_64-linux-gnu/bits/posix_opt.h:
@@ -1156,25 +1149,27 @@ CMakeFiles/circuiti.dir/main.cpp.o:
 
 /usr/include/c++/14/bits/streambuf.tcc:
 
-/usr/include/c++/14/bits/basic_ios.tcc:
-
-/usr/include/c++/14/bits/charconv.h:
-
 /usr/include/c++/14/cstring:
 
 /usr/include/c++/14/cwchar:
-
-/usr/include/c++/14/bits/ptr_traits.h:
-
-/usr/include/alloca.h:
-
-/usr/include/c++/14/bits/stringfwd.h:
 
 /usr/include/eigen3/Eigen/src/Core/arch/Default/Settings.h:
 
 /usr/include/asm-generic/posix_types.h:
 
 /usr/include/c++/14/tr1/bessel_function.tcc:
+
+/usr/include/c++/14/bits/ptr_traits.h:
+
+/usr/include/alloca.h:
+
+/usr/lib/gcc/x86_64-linux-gnu/14/include/stddef.h:
+
+/usr/include/x86_64-linux-gnu/bits/unistd_ext.h:
+
+/usr/include/c++/14/bits/vector.tcc:
+
+/usr/include/eigen3/Eigen/Cholesky:
 
 /usr/include/x86_64-linux-gnu/bits/posix2_lim.h:
 
@@ -1193,6 +1188,14 @@ CMakeFiles/circuiti.dir/main.cpp.o:
 /usr/include/eigen3/Eigen/src/Core/SelfAdjointView.h:
 
 /home/pcsdocker/Data/CircuitsProject/main.cpp:
+
+/usr/include/eigen3/Eigen/src/Core/functors/AssignmentFunctors.h:
+
+/usr/include/c++/14/array:
+
+/usr/include/eigen3/Eigen/src/Core/util/ForwardDeclarations.h:
+
+/usr/include/c++/14/bits/hashtable.h:
 
 /usr/include/c++/14/bits/sstream.tcc:
 
@@ -1234,11 +1237,13 @@ CMakeFiles/circuiti.dir/main.cpp.o:
 
 /usr/include/eigen3/Eigen/src/Core/CwiseUnaryOp.h:
 
-/usr/include/c++/14/bits/exception_ptr.h:
+/usr/include/c++/14/bits/charconv.h:
 
-/usr/include/x86_64-linux-gnu/bits/floatn-common.h:
+/usr/include/c++/14/bits/basic_ios.tcc:
 
-/usr/include/c++/14/bits/locale_facets.tcc:
+/usr/include/x86_64-linux-gnu/bits/long-double.h:
+
+/usr/include/c++/14/stdlib.h:
 
 /usr/include/eigen3/Eigen/src/Geometry/Hyperplane.h:
 
@@ -1247,6 +1252,8 @@ CMakeFiles/circuiti.dir/main.cpp.o:
 /usr/include/c++/14/bits/basic_string.h:
 
 /usr/include/c++/14/tr1/riemann_zeta.tcc:
+
+/home/pcsdocker/Data/CircuitsProject/sistemi_lineari.hpp:
 
 /usr/include/c++/14/bits/cpp_type_traits.h:
 
@@ -1307,6 +1314,10 @@ CMakeFiles/circuiti.dir/main.cpp.o:
 /usr/include/c++/14/bits/istream.tcc:
 
 /usr/include/c++/14/bits/list.tcc:
+
+/usr/include/eigen3/Eigen/src/misc/Kernel.h:
+
+/usr/include/c++/14/concepts:
 
 /usr/include/eigen3/Eigen/src/Geometry/Rotation2D.h:
 
@@ -1449,14 +1460,6 @@ CMakeFiles/circuiti.dir/main.cpp.o:
 /usr/include/c++/14/unordered_map:
 
 /usr/include/ctype.h:
-
-/usr/lib/gcc/x86_64-linux-gnu/14/include/stddef.h:
-
-/usr/include/x86_64-linux-gnu/bits/unistd_ext.h:
-
-/usr/include/c++/14/bits/vector.tcc:
-
-/usr/include/eigen3/Eigen/Cholesky:
 
 /usr/include/eigen3/Eigen/src/Core/products/GeneralMatrixVector.h:
 
