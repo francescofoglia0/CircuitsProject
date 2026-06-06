@@ -3,14 +3,16 @@
 #include <Eigen/Dense>
 #include <string>
 #include <tuple> //per restituire 3 elementi
+#include <utility> //per std::pair
+#include "GC.hpp"
 
 
 
-std::tuple<Eigen::MatrixXi,Eigen::MatrixXd,Eigen::VectorXd> creazione_B_R(const unidirected_graph<int,double>& circuito,const vector<Eigen::VectorXi>& C)
+std::tuple<Eigen::MatrixXd,Eigen::MatrixXd,Eigen::VectorXd> creazione_B_R(const unidirected_graph<int,double>& circuito,const vector<vector<int>>& C)
 {
     int m = circuito.get_resistenze(); //numero di resistenze
     size_t n = C.size();
-    Eigen::MatrixXi B = Eigen::MatrixXi::Zero(m,n);
+    Eigen::MatrixXd B = Eigen::MatrixXd::Zero(m,n);
     Eigen::MatrixXd R = Eigen::MatrixXd::Zero(m,m);
     //inizializziamo il vettore di generatori che come dimensione = numero di maglie
     //perche se una maglia ha piu generatori li sommiamo con segno
@@ -19,9 +21,9 @@ std::tuple<Eigen::MatrixXi,Eigen::MatrixXd,Eigen::VectorXd> creazione_B_R(const 
     {
         double somma_generatore = 0;
             //sto confrontando con size di una matrice eigen (ha segno anche negativo)       
-        for(int j = 0; j<C[i].size()-1; j++)
+        for(size_t j = 0; j<C[i].size()-1; j++)
         {
-            unidirected_edge<int> arco_copia = {C[i](j),C[i](j+1)};
+            unidirected_edge<int> arco_copia = {C[i][j],C[i][j+1]};
             int indice_arco = circuito.edge_number(arco_copia);
             unidirected_edge<int> arco = circuito.edge_at(indice_arco);
             if(arco.get_name()[0] =='R') 
@@ -32,13 +34,13 @@ std::tuple<Eigen::MatrixXi,Eigen::MatrixXd,Eigen::VectorXd> creazione_B_R(const 
                 double valore = circuito.get_peso(arco);
                 //se indice resistenza è 'R2' ->2 allora metto in R(2,2) = valore di R2
                 R(indice_resistenza,indice_resistenza) = valore; //metto valore sulla diagonale di R
-                if(C[i](j)<C[i](j+1))
+                if(C[i][j]<C[i][j+1])
                 {
-                    B(indice_resistenza,i) = 1;
+                    B(indice_resistenza,i) = 1.0;
                 }
                 else
                 {
-                    B(indice_resistenza,i) = -1;
+                    B(indice_resistenza,i) = -1.0;
                 }
             }
             else if(arco.get_name()[0] == 'V')
@@ -46,12 +48,12 @@ std::tuple<Eigen::MatrixXi,Eigen::MatrixXd,Eigen::VectorXd> creazione_B_R(const 
                 double generatore = circuito.get_peso(arco);
                 bool invertito = arco.is_inverted(); 
                 //se sto scorrendo da piu piccolo a piu grande e il generatore non è stato invertito
-                if(C[i](j)<C[i](j+1) && !invertito)
+                if(C[i][j]<C[i][j+1] && !invertito)
                 {
                     generatore = -generatore;
                 }
                 //se sto scorrendo da piu grande a piu piccolo e il generatore è stato invertito
-                else if(C[i](j)>C[i](j+1) && invertito)
+                else if(C[i][j]>C[i][j+1] && invertito)
                 {
                     generatore = -generatore;
                 }
@@ -65,4 +67,19 @@ std::tuple<Eigen::MatrixXi,Eigen::MatrixXd,Eigen::VectorXd> creazione_B_R(const 
 }
 
 
+std::pair<Eigen::VectorXd,Eigen::VectorXd> calcola_output(const unidirected_graph<int,double>& circuito,const vector<vector<int>>& C)
+{
+    auto [B,R,v] = creazione_B_R(circuito,C);
+
+    Eigen::MatrixXd A = B.transpose() *R * B;
+    Eigen::VectorXd x0 = Eigen::VectorXd::Zero(v.size());
+    //calcolo i_maglie che sarebbe la corrente che passa su ogni maglia (dim = n_maglie nel circuito)
+    Eigen::VectorXd i_maglie = gcd(A,v,x0);
+    Eigen::VectorXd vR = R*B*i_maglie;
+    //dopo aver calcolato le correnti su ogni maglia, calcoliamo le correnti sulle
+    //rispettive resitenze
+    Eigen::VectorXd i = B*i_maglie;
+
+    return {i,vR};
+}
 

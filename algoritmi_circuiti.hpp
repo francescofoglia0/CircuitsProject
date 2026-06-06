@@ -111,9 +111,9 @@ std::vector<int> bfs_depina(const unidirected_graph<int,double>& G, int sorg, in
 
 //implemento de pina
 //estrae la base dei cicli minimi di un circuito 
-vector<Eigen::VectorXi> de_pina(const unidirected_graph<int,double>& G,const unidirected_graph<int,double>& T,const unidirected_graph<int,double>& coalbero)
+vector<vector<int>> de_pina(const unidirected_graph<int,double>& G,const unidirected_graph<int,double>& T,const unidirected_graph<int,double>& coalbero)
 {
-    vector<Eigen::VectorXi> B; //lista di cicli che ritorno
+    vector<vector<int>> B; //lista di cicli che ritorno
     //matrice S ha sulle righe il numero di archi nel circuito e sulle colonne i cicli da trovare
     Eigen::MatrixXi S = Eigen::MatrixXi::Zero(G.all_edges().size(),coalbero.all_edges().size());
 
@@ -196,7 +196,7 @@ vector<Eigen::VectorXi> de_pina(const unidirected_graph<int,double>& G,const uni
         //ciclo minimo trovato
         Eigen::VectorXi Cj = Eigen::VectorXi::Zero(G.all_edges().size());
         //creiamo un vettore per salvare il ciclo come sequenza di nodi
-        Eigen::VectorXi ciclo_minimo = Eigen::VectorXi::Zero(taglia);
+        vector<int> ciclo_minimo(taglia);
         int u_orig;
         int v_orig;
         for(size_t i = 0; i<taglia-1; i++)
@@ -215,10 +215,10 @@ vector<Eigen::VectorXi> de_pina(const unidirected_graph<int,double>& G,const uni
             unidirected_edge<int> e = {u_orig,v_orig};
             int indice = G.edge_number(e); //trovo a quale riga corrisponde l'arco
             Cj(indice) = 1; //quell'arco trovato vale 1 nel ciclo Cj
-            ciclo_minimo(i) = u_orig;
+            ciclo_minimo[i] = u_orig;
         }
         //inserisco l'ultimo elemento di migliore nel ciclo_minimo(il primo elemento del ciclo)
-        ciclo_minimo(taglia-1) = v_orig;
+        ciclo_minimo[taglia-1] = v_orig;
         //inserisco il ciclo minimo nella Base 
         B.push_back(ciclo_minimo);
         

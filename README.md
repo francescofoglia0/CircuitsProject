@@ -22,3 +22,5 @@ abbiamo aggiunto get_nome nella classe di archi per vedere se abbiamo una resist
 
 
 ///implementare la soluzoine dei sistemi nel hpp, modificare eigen se serve, commentare e osservazioni
+
+Nella costruzione delle matrici B, R e del vettore v per il calcolo delle correnti di maglia, abbiamo iterato su un vettore contenente le maglie, ottenuto come output dalla nostra implementazione dell'algoritmo di De Pina. In particolare abbiamo osservato che, siccome le correnti di maglia si trovano in un vettore risultato del prodotto scalare R'BR*v, se procediamo a riempire gli oggetti v, B e R nell'ordine delle maglie trovate da De Pina (che è difficile da prevedere) ci sarà corrispondenza tra le componenti e i prodotti scalari costruiranno le giuste equazioni. Inoltre, questa "imprevedibilità" dell'ordine delle maglie determina solamente l'ordine delle colonne di B, pertanto riempendo la righe di R e B seguendo l'ordine imposto dal grafo, otterremo un vettore vR la cui componente i-esima corrisponde al potenziale ai capi della resistenza i-esima seguendo la numerazione dell'input.

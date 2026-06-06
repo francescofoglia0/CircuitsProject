@@ -3,7 +3,7 @@ graph Circuito {
     node [shape=circle, style=filled, fillcolor=lightblue, fontname="Helvetica"];
     edge [fontname="Helvetica", fontsize=10];
 
-    1 -- 2 [label="\n1 Ohm", color="red", fontcolor="red"];
-    1 -- 4 [label="\n1 Ohm"];
-    2 -- 4 [label="\n1 Ohm", color="red", fontcolor="red"];
+    6 -- 9 [label="\n1 Ohm", color="red", fontcolor="red"];
+    6 -- 10 [label="\n1 Ohm"];
+    9 -- 10 [label="\n1 Ohm", color="red", fontcolor="red"];
 }

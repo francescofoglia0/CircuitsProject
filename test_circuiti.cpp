@@ -10,10 +10,10 @@ using namespace std;
 
 // --- FUNZIONE HELPER PER I TEST ---
 // Conta quanti archi (quanti '1') ci sono nel vettore del ciclo
-int conta_archi(const Eigen::VectorXi& ciclo) {
+int conta_archi(const vector<int>& ciclo) {
     int count = 0;
-    for(int i = 0; i < ciclo.size(); i++) {
-        if(ciclo(i) == 1) count++;
+    for(size_t i = 0; i < ciclo.size(); i++) {
+        if(ciclo[i] == 1) count++;
     }
     return count;
 }
@@ -38,7 +38,7 @@ void test_grafo_quadrato()
     unidirected_graph<int, double> coalbero;
     coalbero.add_edge({4, 1});
 
-    vector<Eigen::VectorXi> cicli = de_pina(circuito, T, coalbero);
+    vector<vector<int>> cicli = de_pina(circuito, T, coalbero);
 
     assert(cicli.size() == 1); 
     assert(conta_archi(cicli[0]) == 4);
@@ -64,7 +64,7 @@ void test_albero_lineare()
     // Il coalbero è vuoto
     unidirected_graph<int, double> coalbero;
 
-    vector<Eigen::VectorXi> cicli = de_pina(circuito, T, coalbero);
+    vector<vector<int>> cicli = de_pina(circuito, T, coalbero);
 
     // Mi aspetto esattamente 0 cicli
     assert(cicli.size() == 0); 
@@ -96,7 +96,7 @@ void test_due_maglie_adiacenti()
     coalbero.add_edge({4, 1});
     coalbero.add_edge({1, 3});
 
-    vector<Eigen::VectorXi> cicli = de_pina(circuito, T, coalbero);
+    vector<vector<int>> cicli = de_pina(circuito, T, coalbero);
 
     // Mi aspetto esattamente 2 cicli (poiché ci sono 2 archi nel coalbero)
     assert(cicli.size() == 2); 
@@ -132,7 +132,7 @@ void test_grafo_disconnesso()
     unidirected_graph<int, double> coalbero;
     coalbero.add_edge({3, 1});
 
-    vector<Eigen::VectorXi> cicli = de_pina(circuito, T, coalbero);
+    vector<vector<int>> cicli = de_pina(circuito, T, coalbero);
 
     // Mi aspetto 1 solo ciclo (il triangolo)
     assert(cicli.size() == 1); 

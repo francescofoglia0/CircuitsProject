@@ -3,7 +3,15 @@ graph Circuito {
     node [shape=circle, style=filled, fillcolor=lightblue, fontname="Helvetica"];
     edge [fontname="Helvetica", fontsize=10];
 
-    2 -- 3 [label="R4\n1 Ohm", color="red", fontcolor="red"];
-    2 -- 4 [label="R1\n1 Ohm", color="red", fontcolor="red"];
-    2 -- 5 [label="R5\n1 Ohm"];
+    2 -- 3 [label="V1\n1 V"];
+    2 -- 5 [label="R15\n1 Ohm"];
+    2 -- 6 [label="R10\n1 Ohm"];
+    3 -- 6 [label="R16\n1 Ohm"];
+    3 -- 7 [label="R11\n1 Ohm"];
+    6 -- 7 [label="R4\n1 Ohm"];
+    6 -- 9 [label="R17\n1 Ohm"];
+    6 -- 10 [label="R13\n1 Ohm"];
+    6 -- 11 [label="R19\n1 Ohm"];
+    7 -- 8 [label="R5\n1 Ohm"];
+    7 -- 11 [label="R14\n1 Ohm"];
 }
