@@ -1,6 +1,7 @@
-CMakeFiles/circuiti.dir/main.cpp.o: \
- /home/pcsdocker/Data/CircuitsProject/main.cpp /usr/include/stdc-predef.h \
- /usr/include/c++/14/iostream /usr/include/c++/14/bits/requires_hosted.h \
+CMakeFiles/altri_risultati.dir/altri_ris.cpp.o: \
+ /home/pcsdocker/Data/CircuitsProject/altri_ris.cpp \
+ /usr/include/stdc-predef.h /usr/include/c++/14/iostream \
+ /usr/include/c++/14/bits/requires_hosted.h \
  /usr/include/x86_64-linux-gnu/c++/14/bits/c++config.h \
  /usr/include/x86_64-linux-gnu/c++/14/bits/os_defines.h \
  /usr/include/features.h /usr/include/features-time64.h \
@@ -454,4 +455,22 @@ CMakeFiles/circuiti.dir/main.cpp.o: \
  /usr/include/eigen3/Eigen/src/Eigenvalues/MatrixBaseEigenvalues.h \
  /home/pcsdocker/Data/CircuitsProject/sistemi_lineari.hpp \
  /usr/include/c++/14/utility /usr/include/c++/14/bits/stl_relops.h \
- /home/pcsdocker/Data/CircuitsProject/GC.hpp
+ /home/pcsdocker/Data/CircuitsProject/GC.hpp /usr/include/c++/14/chrono \
+ /usr/include/c++/14/bits/chrono.h /usr/include/c++/14/ratio \
+ /usr/include/c++/14/ctime /usr/include/c++/14/bits/parse_numbers.h \
+ /usr/include/c++/14/bits/shared_ptr.h \
+ /usr/include/c++/14/bits/shared_ptr_base.h \
+ /usr/include/c++/14/bits/unique_ptr.h \
+ /usr/include/c++/14/ext/concurrence.h /usr/include/c++/14/bits/align.h \
+ /usr/include/c++/14/bits/chrono_io.h /usr/include/c++/14/iomanip \
+ /usr/include/c++/14/locale \
+ /usr/include/c++/14/bits/locale_facets_nonio.h \
+ /usr/include/x86_64-linux-gnu/c++/14/bits/time_members.h \
+ /usr/include/x86_64-linux-gnu/c++/14/bits/messages_members.h \
+ /usr/include/libintl.h /usr/include/c++/14/bits/locale_facets_nonio.tcc \
+ /usr/include/c++/14/bits/locale_conv.h \
+ /usr/include/c++/14/bits/quoted_string.h /usr/include/c++/14/format \
+ /usr/include/c++/14/charconv /usr/include/c++/14/optional \
+ /usr/include/c++/14/span /usr/include/c++/14/variant \
+ /usr/include/c++/14/bits/unicode.h \
+ /usr/include/c++/14/bits/unicode-data.h

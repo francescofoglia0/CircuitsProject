@@ -130,6 +130,19 @@ circuiti/fast:
 .PHONY : circuiti/fast
 
 #=============================================================================
+# Target rules for targets named altri_risultati
+
+# Build rule for target.
+altri_risultati: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 altri_risultati
+.PHONY : altri_risultati
+
+# fast build rule for target.
+altri_risultati/fast:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/altri_risultati.dir/build.make CMakeFiles/altri_risultati.dir/build
+.PHONY : altri_risultati/fast
+
+#=============================================================================
 # Target rules for targets named test_circ
 
 # Build rule for target.
@@ -141,6 +154,30 @@ test_circ: cmake_check_build_system
 test_circ/fast:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_circ.dir/build.make CMakeFiles/test_circ.dir/build
 .PHONY : test_circ/fast
+
+altri_ris.o: altri_ris.cpp.o
+.PHONY : altri_ris.o
+
+# target to build an object file
+altri_ris.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/altri_risultati.dir/build.make CMakeFiles/altri_risultati.dir/altri_ris.cpp.o
+.PHONY : altri_ris.cpp.o
+
+altri_ris.i: altri_ris.cpp.i
+.PHONY : altri_ris.i
+
+# target to preprocess a source file
+altri_ris.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/altri_risultati.dir/build.make CMakeFiles/altri_risultati.dir/altri_ris.cpp.i
+.PHONY : altri_ris.cpp.i
+
+altri_ris.s: altri_ris.cpp.s
+.PHONY : altri_ris.s
+
+# target to generate assembly for a file
+altri_ris.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/altri_risultati.dir/build.make CMakeFiles/altri_risultati.dir/altri_ris.cpp.s
+.PHONY : altri_ris.cpp.s
 
 main.o: main.cpp.o
 .PHONY : main.o
@@ -198,8 +235,12 @@ help:
 	@echo "... depend"
 	@echo "... edit_cache"
 	@echo "... rebuild_cache"
+	@echo "... altri_risultati"
 	@echo "... circuiti"
 	@echo "... test_circ"
+	@echo "... altri_ris.o"
+	@echo "... altri_ris.i"
+	@echo "... altri_ris.s"
 	@echo "... main.o"
 	@echo "... main.i"
 	@echo "... main.s"

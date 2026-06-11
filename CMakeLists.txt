@@ -9,8 +9,10 @@ find_package(Eigen3 REQUIRED)
 
 # Creo il target per l'eseguibile principale del mio progetto software
 add_executable(circuiti main.cpp)
+add_executable(altri_risultati altri_ris.cpp)
 
 add_executable(test_circ test_circuiti.cpp)
 # Collega Eigen e imposta le ottimizzazioni su "circuiti"
 target_link_libraries(circuiti PRIVATE Eigen3::Eigen)
 target_link_libraries(test_circ Eigen3::Eigen)
+target_link_libraries(altri_risultati PRIVATE Eigen3::Eigen)

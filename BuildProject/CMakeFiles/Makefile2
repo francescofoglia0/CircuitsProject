@@ -64,11 +64,13 @@ CMAKE_BINARY_DIR = /home/pcsdocker/Data/CircuitsProject/BuildProject
 
 # The main recursive "all" target.
 all: CMakeFiles/circuiti.dir/all
+all: CMakeFiles/altri_risultati.dir/all
 all: CMakeFiles/test_circ.dir/all
 .PHONY : all
 
 # The main recursive "codegen" target.
 codegen: CMakeFiles/circuiti.dir/codegen
+codegen: CMakeFiles/altri_risultati.dir/codegen
 codegen: CMakeFiles/test_circ.dir/codegen
 .PHONY : codegen
 
@@ -78,6 +80,7 @@ preinstall:
 
 # The main recursive "clean" target.
 clean: CMakeFiles/circuiti.dir/clean
+clean: CMakeFiles/altri_risultati.dir/clean
 clean: CMakeFiles/test_circ.dir/clean
 .PHONY : clean
 
@@ -88,7 +91,7 @@ clean: CMakeFiles/test_circ.dir/clean
 CMakeFiles/circuiti.dir/all:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/circuiti.dir/build.make CMakeFiles/circuiti.dir/depend
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/circuiti.dir/build.make CMakeFiles/circuiti.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/pcsdocker/Data/CircuitsProject/BuildProject/CMakeFiles --progress-num=1,2 "Built target circuiti"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/pcsdocker/Data/CircuitsProject/BuildProject/CMakeFiles --progress-num=3,4 "Built target circuiti"
 .PHONY : CMakeFiles/circuiti.dir/all
 
 # Build rule for subdir invocation for target.
@@ -105,7 +108,7 @@ circuiti: CMakeFiles/circuiti.dir/rule
 # codegen rule for target.
 CMakeFiles/circuiti.dir/codegen:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/circuiti.dir/build.make CMakeFiles/circuiti.dir/codegen
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/pcsdocker/Data/CircuitsProject/BuildProject/CMakeFiles --progress-num=1,2 "Finished codegen for target circuiti"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/pcsdocker/Data/CircuitsProject/BuildProject/CMakeFiles --progress-num=3,4 "Finished codegen for target circuiti"
 .PHONY : CMakeFiles/circuiti.dir/codegen
 
 # clean rule for target.
@@ -114,13 +117,45 @@ CMakeFiles/circuiti.dir/clean:
 .PHONY : CMakeFiles/circuiti.dir/clean
 
 #=============================================================================
+# Target rules for target CMakeFiles/altri_risultati.dir
+
+# All Build rule for target.
+CMakeFiles/altri_risultati.dir/all:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/altri_risultati.dir/build.make CMakeFiles/altri_risultati.dir/depend
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/altri_risultati.dir/build.make CMakeFiles/altri_risultati.dir/build
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/pcsdocker/Data/CircuitsProject/BuildProject/CMakeFiles --progress-num=1,2 "Built target altri_risultati"
+.PHONY : CMakeFiles/altri_risultati.dir/all
+
+# Build rule for subdir invocation for target.
+CMakeFiles/altri_risultati.dir/rule: cmake_check_build_system
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/pcsdocker/Data/CircuitsProject/BuildProject/CMakeFiles 2
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 CMakeFiles/altri_risultati.dir/all
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/pcsdocker/Data/CircuitsProject/BuildProject/CMakeFiles 0
+.PHONY : CMakeFiles/altri_risultati.dir/rule
+
+# Convenience name for target.
+altri_risultati: CMakeFiles/altri_risultati.dir/rule
+.PHONY : altri_risultati
+
+# codegen rule for target.
+CMakeFiles/altri_risultati.dir/codegen:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/altri_risultati.dir/build.make CMakeFiles/altri_risultati.dir/codegen
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/pcsdocker/Data/CircuitsProject/BuildProject/CMakeFiles --progress-num=1,2 "Finished codegen for target altri_risultati"
+.PHONY : CMakeFiles/altri_risultati.dir/codegen
+
+# clean rule for target.
+CMakeFiles/altri_risultati.dir/clean:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/altri_risultati.dir/build.make CMakeFiles/altri_risultati.dir/clean
+.PHONY : CMakeFiles/altri_risultati.dir/clean
+
+#=============================================================================
 # Target rules for target CMakeFiles/test_circ.dir
 
 # All Build rule for target.
 CMakeFiles/test_circ.dir/all:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_circ.dir/build.make CMakeFiles/test_circ.dir/depend
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_circ.dir/build.make CMakeFiles/test_circ.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/pcsdocker/Data/CircuitsProject/BuildProject/CMakeFiles --progress-num=3,4 "Built target test_circ"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/pcsdocker/Data/CircuitsProject/BuildProject/CMakeFiles --progress-num=5,6 "Built target test_circ"
 .PHONY : CMakeFiles/test_circ.dir/all
 
 # Build rule for subdir invocation for target.
@@ -137,7 +172,7 @@ test_circ: CMakeFiles/test_circ.dir/rule
 # codegen rule for target.
 CMakeFiles/test_circ.dir/codegen:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_circ.dir/build.make CMakeFiles/test_circ.dir/codegen
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/pcsdocker/Data/CircuitsProject/BuildProject/CMakeFiles --progress-num=3,4 "Finished codegen for target test_circ"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/pcsdocker/Data/CircuitsProject/BuildProject/CMakeFiles --progress-num=5,6 "Finished codegen for target test_circ"
 .PHONY : CMakeFiles/test_circ.dir/codegen
 
 # clean rule for target.

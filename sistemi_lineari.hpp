@@ -20,14 +20,19 @@ std::tuple<Eigen::MatrixXd,Eigen::MatrixXd,Eigen::VectorXd> creazione_B_R(const 
     for(size_t i = 0; i<n; i++)
     {
         double somma_generatore = 0;
-            //sto confrontando con size di una matrice eigen (ha segno anche negativo)       
+        //bool per controllo per i cicli fatti di soli generatori
+        bool maglia_ha_resistenza = false;
+        //sto confrontando con size di una matrice eigen (ha segno anche negativo)       
         for(size_t j = 0; j<C[i].size()-1; j++)
         {
             unidirected_edge<int> arco_copia = {C[i][j],C[i][j+1]};
             int indice_arco = circuito.edge_number(arco_copia);
             unidirected_edge<int> arco = circuito.edge_at(indice_arco);
+            
             if(arco.get_name()[0] =='R') 
             {
+                //se trovo una resistenza allora la maglia è ok
+                maglia_ha_resistenza = true;
                 //per calcolare l'indice della resistenza, prendiamo qual è il secondo valore
                 //della resistenza salvata nel grafo (e.g 'R10'->10)
                 int indice_resistenza = std::stoi(arco.get_name().substr(1))-1;
@@ -60,6 +65,16 @@ std::tuple<Eigen::MatrixXd,Eigen::MatrixXd,Eigen::VectorXd> creazione_B_R(const 
                 //negli altri casi il segno è gia giusto
                 somma_generatore += generatore;
             }
+        }
+
+        //se maglia_ha_resistenza = false allora c'è una maglia di soli generatori
+        if(!maglia_ha_resistenza)
+        {
+            std::cerr << "ERRORE: Cortocircuito rilevato.\n";
+            std::cerr << "La maglia che passa per i nodi ";
+            for(size_t k = 0;k<C[i].size();k++) std::cerr << C[i][k]<< " ";
+            std::cerr << " è composta solo da generatori di tensione.\n";
+            exit(1);
         }
         v(i) = somma_generatore;
     }

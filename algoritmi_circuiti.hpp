@@ -117,7 +117,12 @@ vector<vector<int>> de_pina(const unidirected_graph<int,double>& G,const unidire
     //matrice S ha sulle righe il numero di archi nel circuito e sulle colonne i cicli da trovare
     Eigen::MatrixXi S = Eigen::MatrixXi::Zero(G.all_edges().size(),coalbero.all_edges().size());
 
-    int n = G.all_nodes().size();
+    //invece di prendere il numero di nodi totali, prendo l'ultimo nodo (che sarà il piu grande)
+    //e a questo ci aggiungo 1, in questo modo quando creo i nodi duplicati posso fare
+    //nodo_originale+n senza avere nodi duplicati (ad esempio potrei avere questo caso:
+    //ho i nodi 1 2 3 5 6 7 -> n = 6 e nodo duplicato di 1 sara 1+6 = 7-> errore c'è già)
+    int n = *G.all_nodes().rbegin() +1;
+    
 
     //costruisco il grafo G supporto che ha i vertici duplicati v+,v-, in realta ogni veritice è implementato come:
     //v+n dove n è il numero di vertici che ci sono in G, quindi se v+ è in pos [i] -> v- in pos [i+n]
@@ -204,11 +209,11 @@ vector<vector<int>> de_pina(const unidirected_graph<int,double>& G,const unidire
             //riportiamo i nodi alla loro forma non duplicata
             u_orig = migliore[i];
             v_orig = migliore[i+1];
-            if(u_orig>n)
+            if(u_orig>=n)
             {
                 u_orig -= n;
             }
-            if(v_orig>n)
+            if(v_orig>=n)
             {
                 v_orig -= n;
             }
