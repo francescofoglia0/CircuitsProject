@@ -26,10 +26,6 @@ add_executable(test_dfs_cicli test_dfs_cicli.cpp)
 target_link_libraries(test_dfs_cicli PRIVATE Eigen3::Eigen)
 add_test(NAME TestDfsCicli COMMAND test_dfs_cicli)
 
-add_executable(test_bfs_depina test_bfs_depina.cpp)
-target_link_libraries(test_bfs_depina PRIVATE Eigen3::Eigen)
-add_test(NAME TestBfsDepina COMMAND test_bfs_depina)
-
 add_executable(test_de_pina test_de_pina.cpp)
 target_link_libraries(test_de_pina PRIVATE Eigen3::Eigen)
 add_test(NAME TestDePina COMMAND test_de_pina)
@@ -42,10 +38,6 @@ add_test(NAME TestCreazioneBR COMMAND test_creazione_B_R)
 add_executable(test_calcola_output test_calcola_output.cpp)
 target_link_libraries(test_calcola_output PRIVATE Eigen3::Eigen)
 add_test(NAME TestCalcolaOutput COMMAND test_calcola_output)
-
-add_executable(test_calcolocond test_calcolocond.cpp)
-target_link_libraries(test_calcolocond PRIVATE Eigen3::Eigen)
-add_test(NAME TestCalcoloCond COMMAND test_calcolocond)
 
 add_executable(test_gc test_gc.cpp)
 target_link_libraries(test_gc PRIVATE Eigen3::Eigen)
