@@ -61,7 +61,7 @@ int main(void)
         // test algoritmo di dijkstra
         auto albero_dijkstra = dijkstra(G, 1);
         // l'albero dei cammini minimi da una sorgente copre tutto il grafo (se connesso)
-        if(albero_dijkstra.all_edges().size() != (size_t)(num_nodi - 1)) {
+        if(albero_dijkstra.all_edges().size() != numero_nodi) {
             cout << "Errore\n";
             return EXIT_FAILURE;
         }

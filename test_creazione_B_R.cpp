@@ -47,6 +47,7 @@ int main(void)
             archi.insert({min(u,v), max(u,v)});
             
             // uso solo resistenze per evitare il crash (exit(1)) sui cortocircuiti
+            //testiamo solo se la matrice R sia ben definita
             char tipo = 'R'; 
             double val = get_rand_double(rf, 1.0, 100.0);
             out << tipo << id_comp++ << " " << val << " " << u << " " << v << "\n";
@@ -95,7 +96,7 @@ int main(void)
                 if(i != j && R(i, j) != 0) return EXIT_FAILURE;
             }
         }
-        
+        //verifico che la matrice B abbia solo numeri 0 -1 1
         for(int i = 0; i < m; i++)
         {
             for(int j = 0; j < n; j++)
@@ -105,6 +106,7 @@ int main(void)
             }
         }
     }
+    //eliminiamo il file creato
     remove(nome_file.c_str());
     cout << "Tutto giusto\n";
     return EXIT_SUCCESS;

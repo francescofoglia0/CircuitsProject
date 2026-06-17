@@ -35,6 +35,7 @@ int main(void)
         //scrivo file da passaer alla funzione
         ofstream out(nome_file);
         set<pair<int, int>> archi;
+        //prendo un numero di nodi e di archi casuale
         int num_nodi = get_rand_int(rf, 5, 16);
         int num_archi = num_nodi + get_rand_int(rf, 0, 11);
         int id_comp = 1;
@@ -43,12 +44,12 @@ int main(void)
         {
             int u = get_rand_int(rf, 1, num_nodi);
             int v = get_rand_int(rf, 1, num_nodi);
-            
+            //se c'è gia l'arco saltiamo iteraizione o se per caso u e v sono uguali
             if(u == v || archi.count({min(u,v), max(u,v)})) continue;
             archi.insert({min(u,v), max(u,v)});
             
             // forzo la creazione di 1 solo generatore ('V') al primo arco, gli altri tutti 'R'.
-            // impedisce le maglie composte da soli generatori
+            // impedisce le maglie composte da soli generatori che farebbe crashare
             char tipo;
             if (e == 0) {
                 tipo = 'V';
@@ -97,6 +98,7 @@ int main(void)
             return EXIT_FAILURE;
         }
     }
+    //elimino il file creato
     remove(nome_file.c_str());
     cout << "Tutto giusto\n";
     return EXIT_SUCCESS;
