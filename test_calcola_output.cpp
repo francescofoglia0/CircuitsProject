@@ -2,19 +2,31 @@
 #include <fstream>
 #include <vector>
 #include <cstdlib>
-#include <ctime>
 #include <set>
 #include "parser.hpp"
 #include "visite.hpp"
 #include "algoritmi_circuiti.hpp"
 #include "sistemi_lineari.hpp"
+#include "randfiller.h"
 
 using namespace std;
+
+int get_rand_int(randfiller& rf, int min, int max) {
+    vector<int> v(1);
+    rf.fill(v, min, max);
+    return v[0];
+}
+
+double get_rand_double(randfiller& rf, double min, double max) {
+    vector<double> v(1);
+    rf.fill(v, min, max);
+    return v[0];
+}
 
 int main(void)
 {
     // inizializzo i numeri casuali
-    srand(time(NULL));
+    randfiller rf;
     string nome_file = "filetestout.txt";
 
     // test su 100 sistemi 
@@ -23,14 +35,14 @@ int main(void)
         //scrivo file da passaer alla funzione
         ofstream out(nome_file);
         set<pair<int, int>> archi;
-        int num_nodi = rand() % 12 + 5;
-        int num_archi = num_nodi + (rand() % 12);
+        int num_nodi = get_rand_int(rf, 5, 16);
+        int num_archi = num_nodi + get_rand_int(rf, 0, 11);
         int id_comp = 1;
         
         for(int e = 0; e < num_archi; e++)
         {
-            int u = rand() % num_nodi + 1;
-            int v = rand() % num_nodi + 1;
+            int u = get_rand_int(rf, 1, num_nodi);
+            int v = get_rand_int(rf, 1, num_nodi);
             
             if(u == v || archi.count({min(u,v), max(u,v)})) continue;
             archi.insert({min(u,v), max(u,v)});
@@ -38,7 +50,7 @@ int main(void)
             // forzo la creazione di 1 solo generatore ('V') al primo arco, gli altri tutti 'R'.
             // impedisce le maglie in cortocircuito ma popola il vettore dei termini noti
             char tipo = (e == 0) ? 'V' : 'R';
-            double val = (rand() % 50) + 1.0;
+            double val = get_rand_double(rf, 1.0, 50.0);
             out << tipo << id_comp++ << " " << val << " " << u << " " << v << "\n";
         }
         out.close();

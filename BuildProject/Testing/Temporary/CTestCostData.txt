@@ -1,11 +1,11 @@
-TestFindPath 9 0.00195782
-TestDfsCicli 7 0.00420782
-TestBfsDepina 9 0.0019634
-TestDePina 7 0.036034
-TestCreazioneBR 7 0.0785642
-TestCalcolaOutput 6 0.0933737
-TestCalcoloCond 4 0.00947495
-TestGC 4 0.00684249
-TestLifoFifo 3 0.00355078
-TestVisite 2 0.0238899
+TestFindPath 11 0.00165645
+TestDfsCicli 9 0.0035384
+TestBfsDepina 11 0.00131826
+TestDePina 9 0.0259462
+TestCreazioneBR 9 0.0514097
+TestCalcolaOutput 8 0.0601968
+TestCalcoloCond 6 0.00350055
+TestGC 6 0.00492621
+TestLifoFifo 5 0.00268729
+TestVisite 4 0.010053
 ---

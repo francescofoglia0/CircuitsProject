@@ -2,20 +2,32 @@
 #include <fstream>
 #include <vector>
 #include <cstdlib>
-#include <ctime>
 #include <set>
 #include <Eigen/Dense>
 #include "parser.hpp"
 #include "visite.hpp"
 #include "algoritmi_circuiti.hpp"
 #include "sistemi_lineari.hpp"
+#include "randfiller.h"
 
 using namespace std;
+
+int get_rand_int(randfiller& rf, int min, int max) {
+    vector<int> v(1);
+    rf.fill(v, min, max);
+    return v[0];
+}
+
+double get_rand_double(randfiller& rf, double min, double max) {
+    vector<double> v(1);
+    rf.fill(v, min, max);
+    return v[0];
+}
 
 int main(void)
 {
     // inizializzo il generatore casuale
-    srand(time(NULL));
+    randfiller rf;
     string nome_file = "filetestbr.txt";
 
     // ciclo di stress test su 100 circuiti
@@ -23,20 +35,20 @@ int main(void)
     {
         ofstream out(nome_file);
         set<pair<int, int>> archi;
-        int num_nodi = rand() % 10 + 5;
-        int num_archi = num_nodi + (rand() % 10);
+        int num_nodi = get_rand_int(rf, 5, 14);
+        int num_archi = num_nodi + get_rand_int(rf, 0, 9);
         int id_comp = 1;
         
         for(int e = 0; e < num_archi; e++)
         {
-            int u = rand() % num_nodi + 1;
-            int v = rand() % num_nodi + 1;
+            int u = get_rand_int(rf, 1, num_nodi);
+            int v = get_rand_int(rf, 1, num_nodi);
             if(u == v || archi.count({min(u,v), max(u,v)})) continue;
             archi.insert({min(u,v), max(u,v)});
             
             // uso solo resistenze per evitare il crash (exit(1)) sui cortocircuiti
             char tipo = 'R'; 
-            double val = (rand() % 100) + 1.0;
+            double val = get_rand_double(rf, 1.0, 100.0);
             out << tipo << id_comp++ << " " << val << " " << u << " " << v << "\n";
         }
         out.close();

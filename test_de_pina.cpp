@@ -1,30 +1,36 @@
 #include <iostream>
 #include <vector>
 #include <cstdlib>
-#include <ctime>
 #include <set>
 #include "grafi.hpp"
 #include "visite.hpp"
 #include "algoritmi_circuiti.hpp"
+#include "randfiller.h"
 
 using namespace std;
+
+int get_rand_int(randfiller& rf, int min, int max) {
+    vector<int> v(1);
+    rf.fill(v, min, max);
+    return v[0];
+}
 
 int main(void)
 {
     // inizializzo i numeri casuali
-    srand(time(NULL));
+    randfiller rf;
     
     // simulo 100 input diversi
     for(int k = 0; k < 100; k++)
     {
         unidirected_graph<int, double> G;
-        int num_nodi = rand() % 15 + 5;
-        int num_archi = num_nodi + (rand() % 10);
+        int num_nodi = get_rand_int(rf, 5, 19);
+        int num_archi = num_nodi + get_rand_int(rf, 0, 9);
         
         for(int e = 0; e < num_archi; e++)
         {
-            int u = rand() % num_nodi + 1;
-            int v = rand() % num_nodi + 1;
+            int u = get_rand_int(rf, 1, num_nodi);
+            int v = get_rand_int(rf, 1, num_nodi);
             if(u != v) G.add_edge({u, v});
         }
         

@@ -1,26 +1,37 @@
 #include <iostream>
 #include <vector>
 #include <cstdlib>
-#include <ctime>
 #include "lifofifo.hpp"
+#include "randfiller.h"
 
 using namespace std;
 
+int get_rand_int(randfiller& rf, int min, int max) {
+    vector<int> v(1);
+    rf.fill(v, min, max);
+    return v[0];
+}
+
+double get_rand_double(randfiller& rf, double min, double max) {
+    vector<double> v(1);
+    rf.fill(v, min, max);
+    return v[0];
+}
+
 int main(void)
 {
-    // inizializzo i numeri casuali
-    srand(time(NULL));
+    randfiller rf;
 
     // eseguo 100 iterazioni di testing
     for(int k = 0; k < 100; k++)
     {
-        int n_elementi = rand() % 50 + 10;
+        int n_elementi = get_rand_int(rf, 10, 59);
         vector<int> inseriti;
 
         // test lifo (stack)
         lifo<int> pila;
         for(int i = 0; i < n_elementi; i++) {
-            int val = rand() % 100;
+            int val = get_rand_int(rf, 0, 99);
             inseriti.push_back(val);
             pila.put(val);
         }
@@ -44,7 +55,7 @@ int main(void)
         // test priority queue (min-heap)
         priorityQ<int, double> pq;
         for(int i = 0; i < n_elementi; i++) {
-            double peso = (rand() % 1000) / 10.0;
+            double peso = get_rand_double(rf, 0.0, 99.9);
             pq.put(i, peso); // il nodo è i, il peso è casuale
         }
         

@@ -1,37 +1,49 @@
 #include <iostream>
 #include <cstdlib>
-#include <ctime>
+#include <vector>
 #include "grafi.hpp"
 #include "lifofifo.hpp"
 #include "visite.hpp"
+#include "randfiller.h"
 
 using namespace std;
 
+int get_rand_int(randfiller& rf, int min, int max) {
+    vector<int> v(1);
+    rf.fill(v, min, max);
+    return v[0];
+}
+
+double get_rand_double(randfiller& rf, double min, double max) {
+    vector<double> v(1);
+    rf.fill(v, min, max);
+    return v[0];
+}
+
 int main(void)
 {
-    // inizializzo i numeri casuali
-    srand(time(NULL));
+    randfiller rf;
 
     // 100 iterazioni di testing 
     for(int k = 0; k < 100; k++)
     {
         unidirected_graph<int, double> G;
-        int num_nodi = rand() % 20 + 5;
+        int num_nodi = get_rand_int(rf, 5, 24);
 
         // creo prima un grafo strettamente connesso 
         for(int i = 1; i < num_nodi; i++) {
             G.add_edge({i, i + 1});
-            G.add_peso({i, i + 1}, (rand() % 10) + 1.0); // peso positivo per dijkstra
+            G.add_peso({i, i + 1}, get_rand_double(rf, 1.0, 10.0)); // peso positivo per dijkstra
         }
 
         // aggiungo archi extra casuali per creare maglie e altri archi (max 10 archi extra)
-        int extra = rand() % 10;
+        int extra = get_rand_int(rf, 0, 9);
         for(int i = 0; i < extra; i++) {
-            int u = rand() % num_nodi + 1;
-            int v = rand() % num_nodi + 1;
+            int u = get_rand_int(rf, 1, num_nodi);
+            int v = get_rand_int(rf, 1, num_nodi);
             if(u != v) {
                 G.add_edge({u, v});
-                G.add_peso({u, v}, (rand() % 10) + 1.0);
+                G.add_peso({u, v}, get_rand_double(rf, 1.0, 10.0));
             }
         }
 

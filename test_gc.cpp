@@ -1,22 +1,27 @@
 #include <iostream>
 #include <cstdlib>
-#include <ctime>
+#include <vector>
 #include <Eigen/Dense>
 #include "GC.hpp"
+#include "randfiller.h"
 
 using namespace std;
 
+int get_rand_int(randfiller& rf, int min, int max) {
+    vector<int> v(1);
+    rf.fill(v, min, max);
+    return v[0];
+}
 int main(void)
 {
-    // inizializzo i numeri casuali
-    srand(time(NULL));
+    randfiller rf;
 
     // test di robustezza su 100 sistemi lineari dinamici
     for(int k = 0; k < 100; k++)
     {
-        int n = rand() % 15 + 5; 
+        int n = get_rand_int(rf, 5, 19); 
 
-        // genero una matrice a casuale simmetrica e definita positiva
+        // genero una matrice a casuale simmetrica e definita positiva (libreria Eigen)
         Eigen::MatrixXd M = Eigen::MatrixXd::Random(n, n);
         Eigen::MatrixXd A = M.transpose() * M; 
         
