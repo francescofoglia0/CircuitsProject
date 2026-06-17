@@ -65,6 +65,16 @@ CMAKE_BINARY_DIR = /home/pcsdocker/Data/CircuitsProject/BuildProject
 #=============================================================================
 # Targets provided globally by CMake.
 
+# Special rule for the target test
+test:
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --cyan "Running tests..."
+	/usr/bin/ctest --force-new-ctest-process $(ARGS)
+.PHONY : test
+
+# Special rule for the target test
+test/fast: test
+.PHONY : test/fast
+
 # Special rule for the target edit_cache
 edit_cache:
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --cyan "Running CMake cache editor..."
@@ -117,17 +127,17 @@ depend:
 .PHONY : depend
 
 #=============================================================================
-# Target rules for targets named circuiti
+# Target rules for targets named progetto
 
 # Build rule for target.
-circuiti: cmake_check_build_system
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 circuiti
-.PHONY : circuiti
+progetto: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 progetto
+.PHONY : progetto
 
 # fast build rule for target.
-circuiti/fast:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/circuiti.dir/build.make CMakeFiles/circuiti.dir/build
-.PHONY : circuiti/fast
+progetto/fast:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/progetto.dir/build.make CMakeFiles/progetto.dir/build
+.PHONY : progetto/fast
 
 #=============================================================================
 # Target rules for targets named altri_risultati
@@ -143,17 +153,134 @@ altri_risultati/fast:
 .PHONY : altri_risultati/fast
 
 #=============================================================================
-# Target rules for targets named test_circ
+# Target rules for targets named test_findpath
 
 # Build rule for target.
-test_circ: cmake_check_build_system
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 test_circ
-.PHONY : test_circ
+test_findpath: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 test_findpath
+.PHONY : test_findpath
 
 # fast build rule for target.
-test_circ/fast:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_circ.dir/build.make CMakeFiles/test_circ.dir/build
-.PHONY : test_circ/fast
+test_findpath/fast:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_findpath.dir/build.make CMakeFiles/test_findpath.dir/build
+.PHONY : test_findpath/fast
+
+#=============================================================================
+# Target rules for targets named test_dfs_cicli
+
+# Build rule for target.
+test_dfs_cicli: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 test_dfs_cicli
+.PHONY : test_dfs_cicli
+
+# fast build rule for target.
+test_dfs_cicli/fast:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_dfs_cicli.dir/build.make CMakeFiles/test_dfs_cicli.dir/build
+.PHONY : test_dfs_cicli/fast
+
+#=============================================================================
+# Target rules for targets named test_bfs_depina
+
+# Build rule for target.
+test_bfs_depina: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 test_bfs_depina
+.PHONY : test_bfs_depina
+
+# fast build rule for target.
+test_bfs_depina/fast:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_bfs_depina.dir/build.make CMakeFiles/test_bfs_depina.dir/build
+.PHONY : test_bfs_depina/fast
+
+#=============================================================================
+# Target rules for targets named test_de_pina
+
+# Build rule for target.
+test_de_pina: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 test_de_pina
+.PHONY : test_de_pina
+
+# fast build rule for target.
+test_de_pina/fast:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_de_pina.dir/build.make CMakeFiles/test_de_pina.dir/build
+.PHONY : test_de_pina/fast
+
+#=============================================================================
+# Target rules for targets named test_creazione_B_R
+
+# Build rule for target.
+test_creazione_B_R: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 test_creazione_B_R
+.PHONY : test_creazione_B_R
+
+# fast build rule for target.
+test_creazione_B_R/fast:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_creazione_B_R.dir/build.make CMakeFiles/test_creazione_B_R.dir/build
+.PHONY : test_creazione_B_R/fast
+
+#=============================================================================
+# Target rules for targets named test_calcola_output
+
+# Build rule for target.
+test_calcola_output: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 test_calcola_output
+.PHONY : test_calcola_output
+
+# fast build rule for target.
+test_calcola_output/fast:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_calcola_output.dir/build.make CMakeFiles/test_calcola_output.dir/build
+.PHONY : test_calcola_output/fast
+
+#=============================================================================
+# Target rules for targets named test_calcolocond
+
+# Build rule for target.
+test_calcolocond: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 test_calcolocond
+.PHONY : test_calcolocond
+
+# fast build rule for target.
+test_calcolocond/fast:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_calcolocond.dir/build.make CMakeFiles/test_calcolocond.dir/build
+.PHONY : test_calcolocond/fast
+
+#=============================================================================
+# Target rules for targets named test_gc
+
+# Build rule for target.
+test_gc: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 test_gc
+.PHONY : test_gc
+
+# fast build rule for target.
+test_gc/fast:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_gc.dir/build.make CMakeFiles/test_gc.dir/build
+.PHONY : test_gc/fast
+
+#=============================================================================
+# Target rules for targets named test_lifofifo
+
+# Build rule for target.
+test_lifofifo: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 test_lifofifo
+.PHONY : test_lifofifo
+
+# fast build rule for target.
+test_lifofifo/fast:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_lifofifo.dir/build.make CMakeFiles/test_lifofifo.dir/build
+.PHONY : test_lifofifo/fast
+
+#=============================================================================
+# Target rules for targets named test_visite
+
+# Build rule for target.
+test_visite: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 test_visite
+.PHONY : test_visite
+
+# fast build rule for target.
+test_visite/fast:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_visite.dir/build.make CMakeFiles/test_visite.dir/build
+.PHONY : test_visite/fast
 
 altri_ris.o: altri_ris.cpp.o
 .PHONY : altri_ris.o
@@ -184,7 +311,7 @@ main.o: main.cpp.o
 
 # target to build an object file
 main.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/circuiti.dir/build.make CMakeFiles/circuiti.dir/main.cpp.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/progetto.dir/build.make CMakeFiles/progetto.dir/main.cpp.o
 .PHONY : main.cpp.o
 
 main.i: main.cpp.i
@@ -192,7 +319,7 @@ main.i: main.cpp.i
 
 # target to preprocess a source file
 main.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/circuiti.dir/build.make CMakeFiles/circuiti.dir/main.cpp.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/progetto.dir/build.make CMakeFiles/progetto.dir/main.cpp.i
 .PHONY : main.cpp.i
 
 main.s: main.cpp.s
@@ -200,32 +327,248 @@ main.s: main.cpp.s
 
 # target to generate assembly for a file
 main.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/circuiti.dir/build.make CMakeFiles/circuiti.dir/main.cpp.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/progetto.dir/build.make CMakeFiles/progetto.dir/main.cpp.s
 .PHONY : main.cpp.s
 
-test_circuiti.o: test_circuiti.cpp.o
-.PHONY : test_circuiti.o
+test_bfs_depina.o: test_bfs_depina.cpp.o
+.PHONY : test_bfs_depina.o
 
 # target to build an object file
-test_circuiti.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_circ.dir/build.make CMakeFiles/test_circ.dir/test_circuiti.cpp.o
-.PHONY : test_circuiti.cpp.o
+test_bfs_depina.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_bfs_depina.dir/build.make CMakeFiles/test_bfs_depina.dir/test_bfs_depina.cpp.o
+.PHONY : test_bfs_depina.cpp.o
 
-test_circuiti.i: test_circuiti.cpp.i
-.PHONY : test_circuiti.i
+test_bfs_depina.i: test_bfs_depina.cpp.i
+.PHONY : test_bfs_depina.i
 
 # target to preprocess a source file
-test_circuiti.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_circ.dir/build.make CMakeFiles/test_circ.dir/test_circuiti.cpp.i
-.PHONY : test_circuiti.cpp.i
+test_bfs_depina.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_bfs_depina.dir/build.make CMakeFiles/test_bfs_depina.dir/test_bfs_depina.cpp.i
+.PHONY : test_bfs_depina.cpp.i
 
-test_circuiti.s: test_circuiti.cpp.s
-.PHONY : test_circuiti.s
+test_bfs_depina.s: test_bfs_depina.cpp.s
+.PHONY : test_bfs_depina.s
 
 # target to generate assembly for a file
-test_circuiti.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_circ.dir/build.make CMakeFiles/test_circ.dir/test_circuiti.cpp.s
-.PHONY : test_circuiti.cpp.s
+test_bfs_depina.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_bfs_depina.dir/build.make CMakeFiles/test_bfs_depina.dir/test_bfs_depina.cpp.s
+.PHONY : test_bfs_depina.cpp.s
+
+test_calcola_output.o: test_calcola_output.cpp.o
+.PHONY : test_calcola_output.o
+
+# target to build an object file
+test_calcola_output.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_calcola_output.dir/build.make CMakeFiles/test_calcola_output.dir/test_calcola_output.cpp.o
+.PHONY : test_calcola_output.cpp.o
+
+test_calcola_output.i: test_calcola_output.cpp.i
+.PHONY : test_calcola_output.i
+
+# target to preprocess a source file
+test_calcola_output.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_calcola_output.dir/build.make CMakeFiles/test_calcola_output.dir/test_calcola_output.cpp.i
+.PHONY : test_calcola_output.cpp.i
+
+test_calcola_output.s: test_calcola_output.cpp.s
+.PHONY : test_calcola_output.s
+
+# target to generate assembly for a file
+test_calcola_output.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_calcola_output.dir/build.make CMakeFiles/test_calcola_output.dir/test_calcola_output.cpp.s
+.PHONY : test_calcola_output.cpp.s
+
+test_calcolocond.o: test_calcolocond.cpp.o
+.PHONY : test_calcolocond.o
+
+# target to build an object file
+test_calcolocond.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_calcolocond.dir/build.make CMakeFiles/test_calcolocond.dir/test_calcolocond.cpp.o
+.PHONY : test_calcolocond.cpp.o
+
+test_calcolocond.i: test_calcolocond.cpp.i
+.PHONY : test_calcolocond.i
+
+# target to preprocess a source file
+test_calcolocond.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_calcolocond.dir/build.make CMakeFiles/test_calcolocond.dir/test_calcolocond.cpp.i
+.PHONY : test_calcolocond.cpp.i
+
+test_calcolocond.s: test_calcolocond.cpp.s
+.PHONY : test_calcolocond.s
+
+# target to generate assembly for a file
+test_calcolocond.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_calcolocond.dir/build.make CMakeFiles/test_calcolocond.dir/test_calcolocond.cpp.s
+.PHONY : test_calcolocond.cpp.s
+
+test_creazione_B_R.o: test_creazione_B_R.cpp.o
+.PHONY : test_creazione_B_R.o
+
+# target to build an object file
+test_creazione_B_R.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_creazione_B_R.dir/build.make CMakeFiles/test_creazione_B_R.dir/test_creazione_B_R.cpp.o
+.PHONY : test_creazione_B_R.cpp.o
+
+test_creazione_B_R.i: test_creazione_B_R.cpp.i
+.PHONY : test_creazione_B_R.i
+
+# target to preprocess a source file
+test_creazione_B_R.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_creazione_B_R.dir/build.make CMakeFiles/test_creazione_B_R.dir/test_creazione_B_R.cpp.i
+.PHONY : test_creazione_B_R.cpp.i
+
+test_creazione_B_R.s: test_creazione_B_R.cpp.s
+.PHONY : test_creazione_B_R.s
+
+# target to generate assembly for a file
+test_creazione_B_R.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_creazione_B_R.dir/build.make CMakeFiles/test_creazione_B_R.dir/test_creazione_B_R.cpp.s
+.PHONY : test_creazione_B_R.cpp.s
+
+test_de_pina.o: test_de_pina.cpp.o
+.PHONY : test_de_pina.o
+
+# target to build an object file
+test_de_pina.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_de_pina.dir/build.make CMakeFiles/test_de_pina.dir/test_de_pina.cpp.o
+.PHONY : test_de_pina.cpp.o
+
+test_de_pina.i: test_de_pina.cpp.i
+.PHONY : test_de_pina.i
+
+# target to preprocess a source file
+test_de_pina.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_de_pina.dir/build.make CMakeFiles/test_de_pina.dir/test_de_pina.cpp.i
+.PHONY : test_de_pina.cpp.i
+
+test_de_pina.s: test_de_pina.cpp.s
+.PHONY : test_de_pina.s
+
+# target to generate assembly for a file
+test_de_pina.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_de_pina.dir/build.make CMakeFiles/test_de_pina.dir/test_de_pina.cpp.s
+.PHONY : test_de_pina.cpp.s
+
+test_dfs_cicli.o: test_dfs_cicli.cpp.o
+.PHONY : test_dfs_cicli.o
+
+# target to build an object file
+test_dfs_cicli.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_dfs_cicli.dir/build.make CMakeFiles/test_dfs_cicli.dir/test_dfs_cicli.cpp.o
+.PHONY : test_dfs_cicli.cpp.o
+
+test_dfs_cicli.i: test_dfs_cicli.cpp.i
+.PHONY : test_dfs_cicli.i
+
+# target to preprocess a source file
+test_dfs_cicli.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_dfs_cicli.dir/build.make CMakeFiles/test_dfs_cicli.dir/test_dfs_cicli.cpp.i
+.PHONY : test_dfs_cicli.cpp.i
+
+test_dfs_cicli.s: test_dfs_cicli.cpp.s
+.PHONY : test_dfs_cicli.s
+
+# target to generate assembly for a file
+test_dfs_cicli.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_dfs_cicli.dir/build.make CMakeFiles/test_dfs_cicli.dir/test_dfs_cicli.cpp.s
+.PHONY : test_dfs_cicli.cpp.s
+
+test_findpath.o: test_findpath.cpp.o
+.PHONY : test_findpath.o
+
+# target to build an object file
+test_findpath.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_findpath.dir/build.make CMakeFiles/test_findpath.dir/test_findpath.cpp.o
+.PHONY : test_findpath.cpp.o
+
+test_findpath.i: test_findpath.cpp.i
+.PHONY : test_findpath.i
+
+# target to preprocess a source file
+test_findpath.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_findpath.dir/build.make CMakeFiles/test_findpath.dir/test_findpath.cpp.i
+.PHONY : test_findpath.cpp.i
+
+test_findpath.s: test_findpath.cpp.s
+.PHONY : test_findpath.s
+
+# target to generate assembly for a file
+test_findpath.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_findpath.dir/build.make CMakeFiles/test_findpath.dir/test_findpath.cpp.s
+.PHONY : test_findpath.cpp.s
+
+test_gc.o: test_gc.cpp.o
+.PHONY : test_gc.o
+
+# target to build an object file
+test_gc.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_gc.dir/build.make CMakeFiles/test_gc.dir/test_gc.cpp.o
+.PHONY : test_gc.cpp.o
+
+test_gc.i: test_gc.cpp.i
+.PHONY : test_gc.i
+
+# target to preprocess a source file
+test_gc.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_gc.dir/build.make CMakeFiles/test_gc.dir/test_gc.cpp.i
+.PHONY : test_gc.cpp.i
+
+test_gc.s: test_gc.cpp.s
+.PHONY : test_gc.s
+
+# target to generate assembly for a file
+test_gc.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_gc.dir/build.make CMakeFiles/test_gc.dir/test_gc.cpp.s
+.PHONY : test_gc.cpp.s
+
+test_lifofifo.o: test_lifofifo.cpp.o
+.PHONY : test_lifofifo.o
+
+# target to build an object file
+test_lifofifo.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_lifofifo.dir/build.make CMakeFiles/test_lifofifo.dir/test_lifofifo.cpp.o
+.PHONY : test_lifofifo.cpp.o
+
+test_lifofifo.i: test_lifofifo.cpp.i
+.PHONY : test_lifofifo.i
+
+# target to preprocess a source file
+test_lifofifo.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_lifofifo.dir/build.make CMakeFiles/test_lifofifo.dir/test_lifofifo.cpp.i
+.PHONY : test_lifofifo.cpp.i
+
+test_lifofifo.s: test_lifofifo.cpp.s
+.PHONY : test_lifofifo.s
+
+# target to generate assembly for a file
+test_lifofifo.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_lifofifo.dir/build.make CMakeFiles/test_lifofifo.dir/test_lifofifo.cpp.s
+.PHONY : test_lifofifo.cpp.s
+
+test_visite.o: test_visite.cpp.o
+.PHONY : test_visite.o
+
+# target to build an object file
+test_visite.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_visite.dir/build.make CMakeFiles/test_visite.dir/test_visite.cpp.o
+.PHONY : test_visite.cpp.o
+
+test_visite.i: test_visite.cpp.i
+.PHONY : test_visite.i
+
+# target to preprocess a source file
+test_visite.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_visite.dir/build.make CMakeFiles/test_visite.dir/test_visite.cpp.i
+.PHONY : test_visite.cpp.i
+
+test_visite.s: test_visite.cpp.s
+.PHONY : test_visite.s
+
+# target to generate assembly for a file
+test_visite.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_visite.dir/build.make CMakeFiles/test_visite.dir/test_visite.cpp.s
+.PHONY : test_visite.cpp.s
 
 # Help Target
 help:
@@ -235,18 +578,55 @@ help:
 	@echo "... depend"
 	@echo "... edit_cache"
 	@echo "... rebuild_cache"
+	@echo "... test"
 	@echo "... altri_risultati"
-	@echo "... circuiti"
-	@echo "... test_circ"
+	@echo "... progetto"
+	@echo "... test_bfs_depina"
+	@echo "... test_calcola_output"
+	@echo "... test_calcolocond"
+	@echo "... test_creazione_B_R"
+	@echo "... test_de_pina"
+	@echo "... test_dfs_cicli"
+	@echo "... test_findpath"
+	@echo "... test_gc"
+	@echo "... test_lifofifo"
+	@echo "... test_visite"
 	@echo "... altri_ris.o"
 	@echo "... altri_ris.i"
 	@echo "... altri_ris.s"
 	@echo "... main.o"
 	@echo "... main.i"
 	@echo "... main.s"
-	@echo "... test_circuiti.o"
-	@echo "... test_circuiti.i"
-	@echo "... test_circuiti.s"
+	@echo "... test_bfs_depina.o"
+	@echo "... test_bfs_depina.i"
+	@echo "... test_bfs_depina.s"
+	@echo "... test_calcola_output.o"
+	@echo "... test_calcola_output.i"
+	@echo "... test_calcola_output.s"
+	@echo "... test_calcolocond.o"
+	@echo "... test_calcolocond.i"
+	@echo "... test_calcolocond.s"
+	@echo "... test_creazione_B_R.o"
+	@echo "... test_creazione_B_R.i"
+	@echo "... test_creazione_B_R.s"
+	@echo "... test_de_pina.o"
+	@echo "... test_de_pina.i"
+	@echo "... test_de_pina.s"
+	@echo "... test_dfs_cicli.o"
+	@echo "... test_dfs_cicli.i"
+	@echo "... test_dfs_cicli.s"
+	@echo "... test_findpath.o"
+	@echo "... test_findpath.i"
+	@echo "... test_findpath.s"
+	@echo "... test_gc.o"
+	@echo "... test_gc.i"
+	@echo "... test_gc.s"
+	@echo "... test_lifofifo.o"
+	@echo "... test_lifofifo.i"
+	@echo "... test_lifofifo.s"
+	@echo "... test_visite.o"
+	@echo "... test_visite.i"
+	@echo "... test_visite.s"
 .PHONY : help
 
 

@@ -1,0 +1,163 @@
+Start testing: Jun 17 19:39 UTC
+----------------------------------------------------------
+1/10 Testing: TestFindPath
+1/10 Test: TestFindPath
+Command: "/home/pcsdocker/Data/CircuitsProject/BuildProject/test_findpath"
+Directory: /home/pcsdocker/Data/CircuitsProject/BuildProject
+"TestFindPath" start time: Jun 17 19:39 UTC
+Output:
+----------------------------------------------------------
+Tutto giusto
+<end of output>
+Test time =   0.02 sec
+----------------------------------------------------------
+Test Passed.
+"TestFindPath" end time: Jun 17 19:39 UTC
+"TestFindPath" time elapsed: 00:00:00
+----------------------------------------------------------
+
+2/10 Testing: TestDfsCicli
+2/10 Test: TestDfsCicli
+Command: "/home/pcsdocker/Data/CircuitsProject/BuildProject/test_dfs_cicli"
+Directory: /home/pcsdocker/Data/CircuitsProject/BuildProject
+"TestDfsCicli" start time: Jun 17 19:39 UTC
+Output:
+----------------------------------------------------------
+Tutto giusto
+<end of output>
+Test time =   0.03 sec
+----------------------------------------------------------
+Test Passed.
+"TestDfsCicli" end time: Jun 17 19:39 UTC
+"TestDfsCicli" time elapsed: 00:00:00
+----------------------------------------------------------
+
+3/10 Testing: TestBfsDepina
+3/10 Test: TestBfsDepina
+Command: "/home/pcsdocker/Data/CircuitsProject/BuildProject/test_bfs_depina"
+Directory: /home/pcsdocker/Data/CircuitsProject/BuildProject
+"TestBfsDepina" start time: Jun 17 19:39 UTC
+Output:
+----------------------------------------------------------
+Tutto giusto
+<end of output>
+Test time =   0.02 sec
+----------------------------------------------------------
+Test Passed.
+"TestBfsDepina" end time: Jun 17 19:39 UTC
+"TestBfsDepina" time elapsed: 00:00:00
+----------------------------------------------------------
+
+4/10 Testing: TestDePina
+4/10 Test: TestDePina
+Command: "/home/pcsdocker/Data/CircuitsProject/BuildProject/test_de_pina"
+Directory: /home/pcsdocker/Data/CircuitsProject/BuildProject
+"TestDePina" start time: Jun 17 19:39 UTC
+Output:
+----------------------------------------------------------
+Tutto giusto
+<end of output>
+Test time =   0.25 sec
+----------------------------------------------------------
+Test Passed.
+"TestDePina" end time: Jun 17 19:39 UTC
+"TestDePina" time elapsed: 00:00:00
+----------------------------------------------------------
+
+5/10 Testing: TestCreazioneBR
+5/10 Test: TestCreazioneBR
+Command: "/home/pcsdocker/Data/CircuitsProject/BuildProject/test_creazione_B_R"
+Directory: /home/pcsdocker/Data/CircuitsProject/BuildProject
+"TestCreazioneBR" start time: Jun 17 19:39 UTC
+Output:
+----------------------------------------------------------
+Tutto giusto
+<end of output>
+Test time =   0.55 sec
+----------------------------------------------------------
+Test Passed.
+"TestCreazioneBR" end time: Jun 17 19:39 UTC
+"TestCreazioneBR" time elapsed: 00:00:00
+----------------------------------------------------------
+
+6/10 Testing: TestCalcolaOutput
+6/10 Test: TestCalcolaOutput
+Command: "/home/pcsdocker/Data/CircuitsProject/BuildProject/test_calcola_output"
+Directory: /home/pcsdocker/Data/CircuitsProject/BuildProject
+"TestCalcolaOutput" start time: Jun 17 19:39 UTC
+Output:
+----------------------------------------------------------
+Tutto giusto
+<end of output>
+Test time =   0.56 sec
+----------------------------------------------------------
+Test Passed.
+"TestCalcolaOutput" end time: Jun 17 19:39 UTC
+"TestCalcolaOutput" time elapsed: 00:00:00
+----------------------------------------------------------
+
+7/10 Testing: TestCalcoloCond
+7/10 Test: TestCalcoloCond
+Command: "/home/pcsdocker/Data/CircuitsProject/BuildProject/test_calcolocond"
+Directory: /home/pcsdocker/Data/CircuitsProject/BuildProject
+"TestCalcoloCond" start time: Jun 17 19:39 UTC
+Output:
+----------------------------------------------------------
+Tutto giusto
+<end of output>
+Test time =   0.04 sec
+----------------------------------------------------------
+Test Passed.
+"TestCalcoloCond" end time: Jun 17 19:39 UTC
+"TestCalcoloCond" time elapsed: 00:00:00
+----------------------------------------------------------
+
+8/10 Testing: TestGC
+8/10 Test: TestGC
+Command: "/home/pcsdocker/Data/CircuitsProject/BuildProject/test_gc"
+Directory: /home/pcsdocker/Data/CircuitsProject/BuildProject
+"TestGC" start time: Jun 17 19:39 UTC
+Output:
+----------------------------------------------------------
+Tutto giusto
+<end of output>
+Test time =   0.03 sec
+----------------------------------------------------------
+Test Passed.
+"TestGC" end time: Jun 17 19:39 UTC
+"TestGC" time elapsed: 00:00:00
+----------------------------------------------------------
+
+9/10 Testing: TestLifoFifo
+9/10 Test: TestLifoFifo
+Command: "/home/pcsdocker/Data/CircuitsProject/BuildProject/test_lifofifo"
+Directory: /home/pcsdocker/Data/CircuitsProject/BuildProject
+"TestLifoFifo" start time: Jun 17 19:39 UTC
+Output:
+----------------------------------------------------------
+Tutto giusto
+<end of output>
+Test time =   0.01 sec
+----------------------------------------------------------
+Test Passed.
+"TestLifoFifo" end time: Jun 17 19:39 UTC
+"TestLifoFifo" time elapsed: 00:00:00
+----------------------------------------------------------
+
+10/10 Testing: TestVisite
+10/10 Test: TestVisite
+Command: "/home/pcsdocker/Data/CircuitsProject/BuildProject/test_visite"
+Directory: /home/pcsdocker/Data/CircuitsProject/BuildProject
+"TestVisite" start time: Jun 17 19:39 UTC
+Output:
+----------------------------------------------------------
+Tutto giusto
+<end of output>
+Test time =   0.05 sec
+----------------------------------------------------------
+Test Passed.
+"TestVisite" end time: Jun 17 19:39 UTC
+"TestVisite" time elapsed: 00:00:00
+----------------------------------------------------------
+
+End testing: Jun 17 19:39 UTC

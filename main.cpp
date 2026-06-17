@@ -32,7 +32,7 @@ int main(int argc, const char *argv[])
         return 1;
     }
 
-    //gestiamo il caso in cui è presente un nodo foglia in un circuito, ovvero un circuito è aperto
+    // gestiamo il caso in cui è presente un nodo foglia in un circuito, ovvero un circuito è aperto
     bool anomalie_topologiche = false;
     
     // un circuito chiuso deve avere tutti i nodi con almeno 2 connessioni.
@@ -52,14 +52,14 @@ int main(int argc, const char *argv[])
         return 1;
     }
 
-    //gestiamo qui il caso di grafo disconesso, i.e di piu componenti connesse nel grafo
+    // gestiamo qui il caso di grafo disconesso, i.e di piu componenti connesse nel grafo
     unidirected_graph<int,double> T; // Inizializziamo un grafo vuoto
     std::set<int> nodi_visitati; //qui salviamo tutti i nodi che visitiamo man mano
 
-    // Prendo ogni nodo del circuito per salvare tutte le componenti connesse
+    // prendo ogni nodo del circuito per salvare tutte le componenti connesse
     for(int nodo : circuito.all_nodes())
     {
-        // Se troviamo un nodo non ancora coperto da un albero precedente
+        // se troviamo un nodo non ancora coperto da un albero precedente
         if(nodi_visitati.find(nodo) == nodi_visitati.end())
         {
             // facciamo partire una nuova dfs per questa specifica sottorete
@@ -77,15 +77,15 @@ int main(int argc, const char *argv[])
     // il coalbero conterrà ora solo le vere corde (archi rimanenti) di tutti i sottocicli
     unidirected_graph<int,double> coalbero = circuito - T;
 
-    //DFS
-    // Eseguo l'algoritmo puro
+    // DFS
+    // eseguo l'algoritmo puro
     vector<vector<int>> cicli_dfs = dfs_cicli(circuito, T, coalbero);
 
-    // Scegliamo di risolvere il circuito usando i cicli dfs (piu veloce)
+    // scegliamo di risolvere il circuito usando i cicli dfs (piu veloce)
     auto [B, R, v] = creazione_B_R(circuito, cicli_dfs);
 
 
-    // Soluzione del circuito solo con dfs (risultato uguale a de pina, ma piu veloce)
+    // soluzione del circuito solo con dfs (risultato uguale a de pina, ma piu veloce)
     auto [i_maglie1, V_rami1] = calcola_output(circuito, cicli_dfs);
     cout <<"\n";
     for(int i = 0; i < V_rami1.size(); ++i)

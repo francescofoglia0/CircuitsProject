@@ -1,0 +1,1 @@
+/usr/bin/c++  -Wall -Wshadow -Werror=vla -Wl,--dependency-file=CMakeFiles/test_calcola_output.dir/link.d CMakeFiles/test_calcola_output.dir/test_calcola_output.cpp.o -o test_calcola_output

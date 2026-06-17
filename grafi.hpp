@@ -147,7 +147,7 @@ class unidirected_graph
 
         int edge_number(const unidirected_edge<T>& arco) const 
         {
-            //Verifico se l'arco esiste 
+            //verifico se l'arco esiste 
             auto target = archi.find(arco);
         
             if (target == archi.end()) {
@@ -163,10 +163,10 @@ class unidirected_graph
             return indice;
         }
 
-       // Cambio int in size_t così che l'indice non può mai essere negativo e lo confronto con sizet
+       // cambio int in size_t così che l'indice non può mai essere negativo e lo confronto con sizet
         unidirected_edge<T> edge_at(size_t num) const 
         {
-            // confrontiamo size_t con size_t, niente errori!
+            // confrontiamo size_t con size_t
             if (num >= archi.size()) 
             {
                 std::cerr << "Errore: Indice dell'arco non valido" << std::endl;
@@ -189,10 +189,10 @@ class unidirected_graph
         {
             unidirected_graph<T,P> risultato;
             
-            // Scorriamo direttamente tutti gli archi di questo grafo
+            // scorriamo direttamente tutti gli archi di questo grafo
             for(const auto& corrente : archi)
             {
-                // Se l'arco 'corrente' NON è presente nell'altro grafo, lo aggiungo
+                // se l'arco 'corrente' NON è presente nell'altro grafo, lo aggiungo
                 if(other.archi.find(corrente) == other.archi.end())
                 {
                    risultato.add_edge(corrente);
@@ -230,7 +230,7 @@ operator<<(std::ostream& os, const unidirected_graph<T,P>& g)
 {
     auto tutti_gli_archi = g.all_edges();
     size_t n = tutti_gli_archi.size();
-    size_t i = 0; // Uso size_t invece di int per fare confronti con n
+    size_t i = 0; // uso size_t invece di int per fare confronti con n
     
     os << "{";
     for(const auto& arco : tutti_gli_archi)

@@ -94,12 +94,12 @@ unidirected_graph<T,P> dijkstra(const unidirected_graph<T,P>& G, const T& sorgen
 
     if (std::numeric_limits<P>::has_infinity)
     {
-        // Se il tipo P supporta l'infinito matematico (float o double)
+        // se il tipo P supporta l'infinito matematico (per float o double)
         infinito = std::numeric_limits<P>::infinity(); 
     }
     else 
     {
-        // Se il tipo P NON lo supporta (int)
+        // se il tipo P NON lo supporta ( per int)
         infinito = std::numeric_limits<P>::max(); // Prendi il numero più grande possibile
     }
     std::map<T,P> dist;

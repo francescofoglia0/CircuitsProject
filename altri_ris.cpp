@@ -8,6 +8,7 @@
 #include "algoritmi_circuiti.hpp"
 #include "sistemi_lineari.hpp"
 #include <chrono>
+#include "calcolocond.hpp"
 
 using namespace std;
 
@@ -23,6 +24,7 @@ int main(int argc, const char *argv[])
 
     auto [circuito,mappa_nomi] = leggi_circuito(nomefile);
 
+    //gestiamo il caso in cui il grafo passato sia vuoto o non ci siano resistenze
     if(circuito.all_nodes().empty())
     {
         cerr<<"ERRORE: Il grafo passato è vuoto"<<endl;
@@ -66,28 +68,7 @@ int main(int argc, const char *argv[])
             // facciamo partire una nuova dfs per questa specifica sottorete
             lifo<int> pila_locale;
             unidirected_graph<int,double> albero = graph_visit(circuito, nodo, pila_locale);
-            
-            //VOLENDO è GIA GESTITO DA UN ALTRA PARTE
-            // //qui gestiamo il caso in cui un sottocircuito sia formato da soli generatori
-            // std::set<int> nodi_compconn = albero.all_nodes();
-            // bool ha_resistenza = false;
-            // // scansioniamo tutti gli archi del circuito per vedere se c'è una R in questo sottocircuito
-            // for (const auto& arco : circuito.all_edges()) {
-            //     // se troviamo una resistenza usciamo
-            //     if (nodi_compconn.find(arco.from()) != nodi_compconn.end()) {
-            //         if (arco.get_name()[0] == 'R') {
-            //             ha_resistenza = true;
-            //             break;
-            //         }
-            //     }
-            // }
-            
-            // if (!ha_resistenza) {
-            //     cerr << "ERRORE: Trovato un sottocircuito formato solo da generatori. Non ha senso fisico." << endl;
-            //     return 1;
-            // }
-
-
+        
             // Uniamo gli archi e i nodi di questa componente al grafo T
             for(const auto& arco : albero.all_edges()) {
                 T.add_edge(arco);
@@ -97,9 +78,11 @@ int main(int argc, const char *argv[])
         }
     }
     
-    // il coalbero conterrà ora solo le vere corde (archi rimanenti) di tutti i sottocicli
+    // il coalbero conterrà ora solo gli archi rimanenti di tutti i sottocicli
     unidirected_graph<int,double> coalbero = circuito - T;
-
+    cout<<"--------------------------------------------------------------------------------\n";
+    cout << "DETTAGLI TECNICI\n";
+    cout<<"--------------------------------------------------------------------------------\n";
     //DFS
     // Faccio partire il cronometro
     auto start_dfs = chrono::high_resolution_clock::now();
@@ -126,7 +109,6 @@ int main(int argc, const char *argv[])
 
 
     // DEPINA
-    
     auto start_depina = chrono::high_resolution_clock::now();
     
     vector<vector<int>> cicli_depina = de_pina(circuito, T, coalbero);
@@ -149,18 +131,46 @@ int main(int argc, const char *argv[])
         cout << C.back() << "\n";
     }
 
+    //calcolo le matrici del sistema per il numero di condizionamento
+    auto [B_dfs, R_dfs, v_dfs] = creazione_B_R(circuito, cicli_dfs);
+    auto [B_depina, R_depina, v_depina] = creazione_B_R(circuito, cicli_depina);
+
+    // Chiamata alla funzione del nuovo file .hpp
+    double cond_dfs = calcola_condizionamento(B_dfs, R_dfs);
+    double cond_depina = calcola_condizionamento(B_depina, R_depina);
+
 
     // Scegliamo di risolvere il circuito usando i cicli ottimali di De Pina
-    auto [B, R, v] = creazione_B_R(circuito, cicli_dfs);
+    // auto [B, R, v] = creazione_B_R(circuito, cicli_dfs);
+    cout << "\nMatrici e vettori usando i cicli DFS:";
+    cout << "\nMatrice di Incidenza Maglie (B):\n" << B_dfs << "\n\n";
+    cout << "Matrice delle Resistenze (R):\n" << R_dfs << "\n\n";
+    cout << "Vettore dei Generatori (V):\n" << v_dfs << "\n";
+    cout << "\nCalcolo del numero di condizionamento del sistema (Matrice A = B^T * R * B)\n";
+    cout << " k(A) con cicli DFS = " << cond_dfs << "\n";
 
-    cout << "\nMatrice di Incidenza Maglie (B):\n" << B << "\n\n";
-    cout << "Matrice delle Resistenze (R):\n" << R << "\n\n";
-    cout << "Vettore dei Generatori (V):\n" << v << "\n\n";
+    cout<<"\n--------------------------------------------------------------------------------\n";
 
 
-    // Soluzione del circuito
-    
+    cout << "\nMatrici e vettori usando i cicli DEPINA:";
+    cout << "\nMatrice di Incidenza Maglie (B):\n" << B_depina << "\n\n";
+    cout << "Matrice delle Resistenze (R):\n" << R_depina << "\n\n";
+    cout << "Vettore dei Generatori (V):\n" << v_depina << "\n";
+    cout << "\nCalcolo del numero di condizionamento del sistema (Matrice A = B^T * R * B)\n";
+    cout << " k(A) con cicli De Pina = " << cond_depina << "\n\n";
+   
+    // Soluzione del problmea tramite dfs
+    auto sol_dp = chrono::high_resolution_clock::now();
+
     auto [I_rami, V_rami] = calcola_output(circuito, cicli_depina);
+
+    auto fine_dp = chrono::high_resolution_clock::now();
+
+    chrono::duration<double, milli> tempo_dp = fine_dp - sol_dp;
+    cout<<"--------------------------------------------------------------------------------\n";
+    cout << "OUTPUT RICHIESTO\n";
+    cout<<"--------------------------------------------------------------------------------\n";
+    cout << "\nTempo di costruzione matrici e risoluzione dei sistemi lineari tramite cicli DE PINA: " << tempo_dp.count() << " ms\n";
     cout << "Risultati considerando i cicli generati dall'algoritmo di de pina:\n";
     for(int i = 0; i < V_rami.size(); ++i)
     {
@@ -173,12 +183,20 @@ int main(int argc, const char *argv[])
         // Traduciamo il nome interno nel nome originale della Netlist (es. R50)
         string nome_reale = mappa_nomi[nome_interno];
         
-        cout << nome_reale << ": V = " << tensione << " V, I = " << corrente << " A\n";
+        cout << nome_reale << ": V = " << tensione << " volts, I = " << corrente << " amps\n";
     }
-    cout<<"\n\n";
+    cout<<"\n";
 
     //risolvo anche con i cicli dfs per vedere se cambia
+    auto sol_dfs = chrono::high_resolution_clock::now();
+
     auto [i_maglie1, V_rami1] = calcola_output(circuito, cicli_dfs);
+
+    auto fine_dfs = chrono::high_resolution_clock::now();
+    
+    chrono::duration<double, milli> tempo_dfs = fine_dfs - sol_dfs;
+
+    cout << "\nTempo di costruzione matrici e risoluzione dei sistemi lineari tramite cicli DFS: " << tempo_dfs.count() << " ms\n";
     cout << "Risultati considerando i cicli generati dall'algoritmo dfs:\n";
     for(int i = 0; i < V_rami1.size(); ++i)
     {
@@ -195,6 +213,7 @@ int main(int argc, const char *argv[])
         
         cout << nome_reale1 << ": V = " << tensione << " volts, I = " << corrente << " amps.\n";
     }
+
 
     return 0;
 }

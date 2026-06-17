@@ -57,7 +57,16 @@ set(CMAKE_MAKEFILE_PRODUCTS
 
 # Dependency information for all targets:
 set(CMAKE_DEPEND_INFO_FILES
-  "CMakeFiles/circuiti.dir/DependInfo.cmake"
+  "CMakeFiles/progetto.dir/DependInfo.cmake"
   "CMakeFiles/altri_risultati.dir/DependInfo.cmake"
-  "CMakeFiles/test_circ.dir/DependInfo.cmake"
+  "CMakeFiles/test_findpath.dir/DependInfo.cmake"
+  "CMakeFiles/test_dfs_cicli.dir/DependInfo.cmake"
+  "CMakeFiles/test_bfs_depina.dir/DependInfo.cmake"
+  "CMakeFiles/test_de_pina.dir/DependInfo.cmake"
+  "CMakeFiles/test_creazione_B_R.dir/DependInfo.cmake"
+  "CMakeFiles/test_calcola_output.dir/DependInfo.cmake"
+  "CMakeFiles/test_calcolocond.dir/DependInfo.cmake"
+  "CMakeFiles/test_gc.dir/DependInfo.cmake"
+  "CMakeFiles/test_lifofifo.dir/DependInfo.cmake"
+  "CMakeFiles/test_visite.dir/DependInfo.cmake"
   )

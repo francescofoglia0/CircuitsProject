@@ -4,6 +4,7 @@
 CMakeFiles/altri_risultati.dir/altri_ris.cpp.o: /home/pcsdocker/Data/CircuitsProject/altri_ris.cpp \
   /home/pcsdocker/Data/CircuitsProject/GC.hpp \
   /home/pcsdocker/Data/CircuitsProject/algoritmi_circuiti.hpp \
+  /home/pcsdocker/Data/CircuitsProject/calcolocond.hpp \
   /home/pcsdocker/Data/CircuitsProject/grafi.hpp \
   /home/pcsdocker/Data/CircuitsProject/grafodot.hpp \
   /home/pcsdocker/Data/CircuitsProject/lifofifo.hpp \
@@ -595,6 +596,8 @@ CMakeFiles/altri_risultati.dir/altri_ris.cpp.o:
 
 /usr/lib/linux/uapi/x86/asm/errno.h:
 
+/usr/lib/gcc/x86_64-linux-gnu/14/include/xmmintrin.h:
+
 /usr/include/x86_64-linux-gnu/c++/14/bits/gthr-default.h:
 
 /usr/include/x86_64-linux-gnu/sys/cdefs.h:
@@ -799,8 +802,6 @@ CMakeFiles/altri_risultati.dir/altri_ris.cpp.o:
 
 /usr/include/x86_64-linux-gnu/bits/unistd_ext.h:
 
-/usr/include/eigen3/Eigen/src/Core/GenericPacketMath.h:
-
 /usr/include/eigen3/Eigen/src/Core/products/SelfadjointProduct.h:
 
 /usr/include/c++/14/bits/unordered_map.h:
@@ -881,6 +882,22 @@ CMakeFiles/altri_risultati.dir/altri_ris.cpp.o:
 
 /usr/include/c++/14/bits/charconv.h:
 
+/usr/include/c++/14/bits/atomic_lockfree_defines.h:
+
+/usr/include/x86_64-linux-gnu/bits/errno.h:
+
+/usr/include/c++/14/bits/hashtable.h:
+
+/usr/include/eigen3/Eigen/src/Core/SelfCwiseBinaryOp.h:
+
+/usr/include/c++/14/array:
+
+/usr/include/eigen3/Eigen/src/Core/functors/AssignmentFunctors.h:
+
+/usr/include/c++/14/bits/hash_bytes.h:
+
+/usr/include/x86_64-linux-gnu/bits/waitflags.h:
+
 /usr/include/eigen3/Eigen/src/Core/DiagonalProduct.h:
 
 /usr/include/c++/14/istream:
@@ -888,34 +905,6 @@ CMakeFiles/altri_risultati.dir/altri_ris.cpp.o:
 /usr/include/c++/14/bits/ostream_insert.h:
 
 /usr/include/c++/14/bits/stl_pair.h:
-
-/usr/include/c++/14/bits/stl_map.h:
-
-/usr/include/x86_64-linux-gnu/bits/iscanonical.h:
-
-/usr/include/c++/14/bits/quoted_string.h:
-
-/usr/include/alloca.h:
-
-/usr/include/c++/14/bits/algorithmfwd.h:
-
-/usr/include/c++/14/bits/ptr_traits.h:
-
-/usr/include/c++/14/bits/locale_facets_nonio.tcc:
-
-/usr/include/x86_64-linux-gnu/bits/errno.h:
-
-/usr/include/c++/14/bits/hashtable.h:
-
-/usr/include/c++/14/bits/hash_bytes.h:
-
-/usr/include/x86_64-linux-gnu/bits/waitflags.h:
-
-/usr/include/eigen3/Eigen/src/Core/SelfCwiseBinaryOp.h:
-
-/usr/include/c++/14/array:
-
-/usr/include/eigen3/Eigen/src/Core/functors/AssignmentFunctors.h:
 
 /usr/include/c++/14/clocale:
 
@@ -991,6 +980,24 @@ CMakeFiles/altri_risultati.dir/altri_ris.cpp.o:
 
 /usr/include/eigen3/Eigen/src/Eigenvalues/GeneralizedEigenSolver.h:
 
+/usr/include/c++/14/bits/stl_map.h:
+
+/usr/include/x86_64-linux-gnu/bits/iscanonical.h:
+
+/usr/include/c++/14/bits/quoted_string.h:
+
+/usr/include/alloca.h:
+
+/usr/include/c++/14/bits/algorithmfwd.h:
+
+/usr/include/c++/14/bits/ptr_traits.h:
+
+/usr/include/c++/14/bits/locale_facets_nonio.tcc:
+
+/home/pcsdocker/Data/CircuitsProject/calcolocond.hpp:
+
+/home/pcsdocker/Data/CircuitsProject/lifofifo.hpp:
+
 /home/pcsdocker/Data/CircuitsProject/algoritmi_circuiti.hpp:
 
 /usr/include/x86_64-linux-gnu/c++/14/bits/gthr.h:
@@ -1031,11 +1038,7 @@ CMakeFiles/altri_risultati.dir/altri_ris.cpp.o:
 
 /usr/include/c++/14/bits/stringfwd.h:
 
-/home/pcsdocker/Data/CircuitsProject/lifofifo.hpp:
-
 /usr/include/eigen3/Eigen/src/Core/products/GeneralMatrixMatrix.h:
-
-/usr/include/c++/14/bits/atomic_lockfree_defines.h:
 
 /usr/include/c++/14/bits/allocated_ptr.h:
 
@@ -1123,6 +1126,18 @@ CMakeFiles/altri_risultati.dir/altri_ris.cpp.o:
 
 /usr/include/c++/14/bits/requires_hosted.h:
 
+/usr/include/c++/14/vector:
+
+/usr/include/x86_64-linux-gnu/bits/types/__fpos_t.h:
+
+/usr/include/c++/14/bits/uniform_int_dist.h:
+
+/usr/include/c++/14/bits/postypes.h:
+
+/usr/include/x86_64-linux-gnu/bits/stdint-uintn.h:
+
+/usr/include/x86_64-linux-gnu/bits/types/struct_timespec.h:
+
 /usr/include/c++/14/pstl/pstl_config.h:
 
 /usr/include/c++/14/bits/std_abs.h:
@@ -1187,17 +1202,7 @@ CMakeFiles/altri_risultati.dir/altri_ris.cpp.o:
 
 /usr/include/linux/stddef.h:
 
-/usr/include/c++/14/vector:
-
-/usr/include/x86_64-linux-gnu/bits/types/__fpos_t.h:
-
-/usr/include/c++/14/bits/uniform_int_dist.h:
-
-/usr/include/c++/14/bits/postypes.h:
-
-/usr/include/x86_64-linux-gnu/bits/stdint-uintn.h:
-
-/usr/include/x86_64-linux-gnu/bits/types/struct_timespec.h:
+/usr/include/eigen3/Eigen/src/Core/GenericPacketMath.h:
 
 /usr/include/eigen3/Eigen/src/Core/IO.h:
 
@@ -1328,8 +1333,6 @@ CMakeFiles/altri_risultati.dir/altri_ris.cpp.o:
 /usr/include/eigen3/Eigen/src/Core/products/GeneralBlockPanelKernel.h:
 
 /usr/include/x86_64-linux-gnu/bits/pthread_stack_min-dynamic.h:
-
-/usr/lib/gcc/x86_64-linux-gnu/14/include/xmmintrin.h:
 
 /usr/include/eigen3/Eigen/src/Core/arch/SSE/TypeCasting.h:
 

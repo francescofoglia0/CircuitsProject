@@ -1,0 +1,1 @@
+/usr/bin/c++  -Wall -Wshadow -Werror=vla -Wl,--dependency-file=CMakeFiles/test_calcolocond.dir/link.d CMakeFiles/test_calcolocond.dir/test_calcolocond.cpp.o -o test_calcolocond
