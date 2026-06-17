@@ -25,7 +25,7 @@ int main(void)
     // eseguo 100 iterazioni di testing
     for(int k = 0; k < 100; k++)
     {
-        int n_elementi = get_rand_int(rf, 10, 59);
+        int n_elementi = get_rand_int(rf, 10, 60);
         vector<int> inseriti;
 
         // test lifo (stack)

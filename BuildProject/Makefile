@@ -179,19 +179,6 @@ test_dfs_cicli/fast:
 .PHONY : test_dfs_cicli/fast
 
 #=============================================================================
-# Target rules for targets named test_bfs_depina
-
-# Build rule for target.
-test_bfs_depina: cmake_check_build_system
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 test_bfs_depina
-.PHONY : test_bfs_depina
-
-# fast build rule for target.
-test_bfs_depina/fast:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_bfs_depina.dir/build.make CMakeFiles/test_bfs_depina.dir/build
-.PHONY : test_bfs_depina/fast
-
-#=============================================================================
 # Target rules for targets named test_de_pina
 
 # Build rule for target.
@@ -229,19 +216,6 @@ test_calcola_output: cmake_check_build_system
 test_calcola_output/fast:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_calcola_output.dir/build.make CMakeFiles/test_calcola_output.dir/build
 .PHONY : test_calcola_output/fast
-
-#=============================================================================
-# Target rules for targets named test_calcolocond
-
-# Build rule for target.
-test_calcolocond: cmake_check_build_system
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 test_calcolocond
-.PHONY : test_calcolocond
-
-# fast build rule for target.
-test_calcolocond/fast:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_calcolocond.dir/build.make CMakeFiles/test_calcolocond.dir/build
-.PHONY : test_calcolocond/fast
 
 #=============================================================================
 # Target rules for targets named test_gc
@@ -330,30 +304,6 @@ main.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/progetto.dir/build.make CMakeFiles/progetto.dir/main.cpp.s
 .PHONY : main.cpp.s
 
-test_bfs_depina.o: test_bfs_depina.cpp.o
-.PHONY : test_bfs_depina.o
-
-# target to build an object file
-test_bfs_depina.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_bfs_depina.dir/build.make CMakeFiles/test_bfs_depina.dir/test_bfs_depina.cpp.o
-.PHONY : test_bfs_depina.cpp.o
-
-test_bfs_depina.i: test_bfs_depina.cpp.i
-.PHONY : test_bfs_depina.i
-
-# target to preprocess a source file
-test_bfs_depina.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_bfs_depina.dir/build.make CMakeFiles/test_bfs_depina.dir/test_bfs_depina.cpp.i
-.PHONY : test_bfs_depina.cpp.i
-
-test_bfs_depina.s: test_bfs_depina.cpp.s
-.PHONY : test_bfs_depina.s
-
-# target to generate assembly for a file
-test_bfs_depina.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_bfs_depina.dir/build.make CMakeFiles/test_bfs_depina.dir/test_bfs_depina.cpp.s
-.PHONY : test_bfs_depina.cpp.s
-
 test_calcola_output.o: test_calcola_output.cpp.o
 .PHONY : test_calcola_output.o
 
@@ -377,30 +327,6 @@ test_calcola_output.s: test_calcola_output.cpp.s
 test_calcola_output.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_calcola_output.dir/build.make CMakeFiles/test_calcola_output.dir/test_calcola_output.cpp.s
 .PHONY : test_calcola_output.cpp.s
-
-test_calcolocond.o: test_calcolocond.cpp.o
-.PHONY : test_calcolocond.o
-
-# target to build an object file
-test_calcolocond.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_calcolocond.dir/build.make CMakeFiles/test_calcolocond.dir/test_calcolocond.cpp.o
-.PHONY : test_calcolocond.cpp.o
-
-test_calcolocond.i: test_calcolocond.cpp.i
-.PHONY : test_calcolocond.i
-
-# target to preprocess a source file
-test_calcolocond.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_calcolocond.dir/build.make CMakeFiles/test_calcolocond.dir/test_calcolocond.cpp.i
-.PHONY : test_calcolocond.cpp.i
-
-test_calcolocond.s: test_calcolocond.cpp.s
-.PHONY : test_calcolocond.s
-
-# target to generate assembly for a file
-test_calcolocond.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_calcolocond.dir/build.make CMakeFiles/test_calcolocond.dir/test_calcolocond.cpp.s
-.PHONY : test_calcolocond.cpp.s
 
 test_creazione_B_R.o: test_creazione_B_R.cpp.o
 .PHONY : test_creazione_B_R.o
@@ -581,9 +507,7 @@ help:
 	@echo "... test"
 	@echo "... altri_risultati"
 	@echo "... progetto"
-	@echo "... test_bfs_depina"
 	@echo "... test_calcola_output"
-	@echo "... test_calcolocond"
 	@echo "... test_creazione_B_R"
 	@echo "... test_de_pina"
 	@echo "... test_dfs_cicli"
@@ -597,15 +521,9 @@ help:
 	@echo "... main.o"
 	@echo "... main.i"
 	@echo "... main.s"
-	@echo "... test_bfs_depina.o"
-	@echo "... test_bfs_depina.i"
-	@echo "... test_bfs_depina.s"
 	@echo "... test_calcola_output.o"
 	@echo "... test_calcola_output.i"
 	@echo "... test_calcola_output.s"
-	@echo "... test_calcolocond.o"
-	@echo "... test_calcolocond.i"
-	@echo "... test_calcolocond.s"
 	@echo "... test_creazione_B_R.o"
 	@echo "... test_creazione_B_R.i"
 	@echo "... test_creazione_B_R.s"

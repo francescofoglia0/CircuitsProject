@@ -27,6 +27,7 @@ int main(void)
         int num_nodi = get_rand_int(rf, 5, 24);
         int num_archi = num_nodi + get_rand_int(rf, 0, 14);
         
+        //aggiunge archi randomici
         for(int e = 0; e < num_archi; e++)
         {
             int u = get_rand_int(rf, 1, num_nodi);

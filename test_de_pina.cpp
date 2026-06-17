@@ -55,7 +55,7 @@ int main(void)
         unidirected_graph<int, double> coalbero = G - T;
         vector<vector<int>> cicli_minimi = de_pina(G, T, coalbero);
         
-        // controllo l'indipendenza 
+        // controllo se ci sono tanti cicli quanti archi nel coalbero
         if(cicli_minimi.size() != coalbero.all_edges().size())
         {
             cout << "Errore\n";

@@ -1,0 +1,1 @@
+/usr/bin/c++  -Wall -Wshadow -Werror=vla -Wl,--dependency-file=CMakeFiles/test_grafi.dir/link.d CMakeFiles/test_grafi.dir/test_grafi.cpp.o -o test_grafi

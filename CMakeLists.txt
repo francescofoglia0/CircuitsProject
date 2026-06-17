@@ -48,3 +48,4 @@ add_test(NAME TestLifoFifo COMMAND test_lifofifo)
 
 add_executable(test_visite test_visite.cpp)
 add_test(NAME TestVisite COMMAND test_visite)
+

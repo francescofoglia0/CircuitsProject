@@ -30,7 +30,7 @@ int main(void)
     randfiller rf;
     string nome_file = "filetestbr.txt";
 
-    // ciclo di stress test su 100 circuiti
+    // ciclo di test su 100 circuiti
     for(int k = 0; k < 100; k++)
     {
         ofstream out(nome_file);

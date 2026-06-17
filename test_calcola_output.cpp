@@ -48,7 +48,7 @@ int main(void)
             archi.insert({min(u,v), max(u,v)});
             
             // forzo la creazione di 1 solo generatore ('V') al primo arco, gli altri tutti 'R'.
-            // impedisce le maglie in cortocircuito ma popola il vettore dei termini noti
+            // impedisce le maglie composte da soli generatori
             char tipo;
             if (e == 0) {
                 tipo = 'V';
@@ -88,7 +88,7 @@ int main(void)
         // estraggo le tensioni sui rami dal risolutore
         auto [i_rami, v_rami] = calcola_output(circuito, cicli);
 
-        // legge di kirchhoff (B^t * v_rami = v_gen)
+        // B^t * v_rami = v_gen
         Eigen::VectorXd kvl = B.transpose() * v_rami;
         
         if((kvl - v_gen).norm() > 1e-4)

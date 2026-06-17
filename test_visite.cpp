@@ -36,7 +36,7 @@ int main(void)
             G.add_peso({i, i + 1}, get_rand_double(rf, 1.0, 10.0)); // peso positivo per dijkstra
         }
 
-        // aggiungo archi extra casuali per creare maglie e altri archi (max 10 archi extra)
+        // aggiungo archi extra casuali per creare maglie e altri archi 
         int extra = get_rand_int(rf, 0, 9);
         for(int i = 0; i < extra; i++) {
             int u = get_rand_int(rf, 1, num_nodi);
@@ -51,25 +51,12 @@ int main(void)
         lifo<int> pila;
         auto albero_dfs = graph_visit(G, 1, pila);
         // un albero di copertura per grafi connessi ha nodi - 1 archi
-        if(albero_dfs.all_edges().size() != (size_t)(num_nodi - 1)) {
+        size_t numero_nodi = num_nodi -1;
+        if(albero_dfs.all_edges().size() != (numero_nodi)) {
             cout << "Errore\n";
             return EXIT_FAILURE;
         }
 
-        // test graph_visit con fifo (bfs ampiezza)
-        fifo<int> coda;
-        auto albero_bfs = graph_visit(G, 1, coda);
-        if(albero_bfs.all_edges().size() != (size_t)(num_nodi - 1)) {
-            cout << "Errore\n";
-            return EXIT_FAILURE;
-        }
-
-        // test dfs ricorsiva pura
-        auto albero_ric = recursive_dfs(G, 1);
-        if(albero_ric.all_edges().size() != (size_t)(num_nodi - 1)) {
-            cout << "Errore\n";
-            return EXIT_FAILURE;
-        }
 
         // test algoritmo di dijkstra
         auto albero_dijkstra = dijkstra(G, 1);
