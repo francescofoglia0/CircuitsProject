@@ -49,7 +49,12 @@ int main(void)
             
             // forzo la creazione di 1 solo generatore ('V') al primo arco, gli altri tutti 'R'.
             // impedisce le maglie in cortocircuito ma popola il vettore dei termini noti
-            char tipo = (e == 0) ? 'V' : 'R';
+            char tipo;
+            if (e == 0) {
+                tipo = 'V';
+            } else {
+                tipo = 'R';
+            }
             double val = get_rand_double(rf, 1.0, 50.0);
             out << tipo << id_comp++ << " " << val << " " << u << " " << v << "\n";
         }
@@ -61,7 +66,7 @@ int main(void)
         unidirected_graph<int,double> T;
         set<int> nodi_visitati;
         
-        // aggiunta la logica della foresta per evitare matrici singolari su reti disconnesse
+        // bisogna fare la dfs per ogni componente connessa altrimenti l'albero T non è valido
         for(int nodo : circuito.all_nodes()) {
             if(nodi_visitati.find(nodo) == nodi_visitati.end()) {
                 lifo<int> pila;
