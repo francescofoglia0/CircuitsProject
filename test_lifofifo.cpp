@@ -28,20 +28,20 @@ int main(void)
         int n_elementi = get_rand_int(rf, 10, 60);
         vector<int> inseriti;
 
-        // test lifo (stack)
+        // testo la classe lifo (stack)
         lifo<int> pila;
         for(int i = 0; i < n_elementi; i++) {
             int val = get_rand_int(rf, 0, 99);
             inseriti.push_back(val);
             pila.put(val);
         }
-        // verifico che escano in ordine inverso
+        // verifico che i valori inseriti escano in ordine inverso
         for(int i = n_elementi - 1; i >= 0; i--) {
             if(pila.empty() || pila.get() != inseriti[i]) return EXIT_FAILURE;
         }
         if(!pila.empty()) return EXIT_FAILURE;
 
-        // test fifo (queue)
+        // testo la classe fifo (queue)
         fifo<int> coda;
         for(int i = 0; i < n_elementi; i++) {
             coda.put(inseriti[i]);
@@ -52,7 +52,7 @@ int main(void)
         }
         if(!coda.empty()) return EXIT_FAILURE;
 
-        // test priority queue (min-heap)
+        // testo la priority queue (min-heap)
         priorityQ<int, double> pq;
         for(int i = 0; i < n_elementi; i++) {
             double peso = get_rand_double(rf, 0.0, 99.9);

@@ -25,7 +25,8 @@ int main(void)
         Eigen::MatrixXd M = Eigen::MatrixXd::Random(n, n);
         Eigen::MatrixXd A = M.transpose() * M; 
         
-        // stabilizzo la matrice sommando una piccola identità per garantirne l'inversione
+        // aggiungo valori positivi sulla diagonale cosi sono sicuro 
+        // che la matrice sia simmetrica, definita positiva e non singolare
         A += Eigen::MatrixXd::Identity(n, n) * 0.1;
 
         // decido a priori quale deve essere la soluzione perfetta (x_true)

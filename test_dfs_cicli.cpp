@@ -32,6 +32,7 @@ int main(void)
         {
             int u = get_rand_int(rf, 1, num_nodi);
             int v = get_rand_int(rf, 1, num_nodi);
+            //aggiungiamo solo se gli archi sono diversi altrimenti farebbe crashare
             if(u != v) G.add_edge({u, v});
         }
         
@@ -44,6 +45,7 @@ int main(void)
         for(int nodo : G.all_nodes()) {
             if(nodi_visitati.find(nodo) == nodi_visitati.end()) {
                 lifo<int> pila;
+                //calcolo l'albero di copertura con la dfs
                 auto albero = graph_visit(G, nodo, pila);
                 for(const auto& a : albero.all_edges()) {
                     T.add_edge(a);
@@ -54,6 +56,7 @@ int main(void)
         }
         
         unidirected_graph<int, double> coalbero = G - T;
+        //calcolo i cicli con la funzione dfs_dicli da testare
         auto cicli = dfs_cicli(G, T, coalbero);
         
         // controllo che trovi esattamente tanti cicli quante sono gli archi del coalbero

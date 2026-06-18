@@ -1,1 +1,0 @@
-/usr/bin/c++  -Wall -Wshadow -Werror=vla -Wl,--dependency-file=CMakeFiles/altri_risultati.dir/link.d CMakeFiles/altri_risultati.dir/altri_ris.cpp.o -o altri_risultati

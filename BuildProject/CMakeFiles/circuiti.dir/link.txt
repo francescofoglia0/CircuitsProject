@@ -1,1 +1,0 @@
-/usr/bin/c++  -Wall -Wshadow -Werror=vla -Wl,--dependency-file=CMakeFiles/circuiti.dir/link.d CMakeFiles/circuiti.dir/main.cpp.o -o circuiti

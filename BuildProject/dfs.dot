@@ -1,8 +1,0 @@
-graph Circuito {
-    // Stile dei nodi e degli archi
-    node [shape=circle, style=filled, fillcolor=lightblue, fontname="Helvetica"];
-    edge [fontname="Helvetica", fontsize=10];
-
-    1 -- 2 [label="\n1 Ohm"];
-    1 -- 3 [label="\n1 Ohm"];
-}

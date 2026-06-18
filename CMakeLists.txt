@@ -10,12 +10,11 @@ set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -Wall -Wshadow -Werror=vla")
 find_package(Eigen3 REQUIRED)
 
 # Creo il target per l'eseguibile principale del mio progetto software
-add_executable(progetto main.cpp)
-add_executable(altri_risultati altri_ris.cpp)
+set(SRC_progetto timecounter.cpp main.cpp)
+add_executable(progetto ${SRC_progetto})
 
-# Collega Eigen e imposta le ottimizzazioni su "circuiti"
+# Collega Eigen
 target_link_libraries(progetto PRIVATE Eigen3::Eigen)
-target_link_libraries(altri_risultati PRIVATE Eigen3::Eigen)
 
 #aggiungo i test
 add_executable(test_findpath test_findpath.cpp)

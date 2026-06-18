@@ -34,6 +34,7 @@ int main(void)
         set<int> visited;
         vector<int> path;
         
+        // controllo se il cammino è valido e se parte/finisce nei nodi giusti.
         // scelgo due nodi a caso per testare se trova il cammino
         int partenza = get_rand_int(rf, 1, num_nodi);
         int arrivo = get_rand_int(rf, 1, num_nodi);

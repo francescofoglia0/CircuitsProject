@@ -41,6 +41,8 @@ int main(void)
         for(int i = 0; i < extra; i++) {
             int u = get_rand_int(rf, 1, num_nodi);
             int v = get_rand_int(rf, 1, num_nodi);
+            //aggiungiamo archi solo se i nodi che lo formano sono diversi
+            //altrmenti otteniamo errore dal nostro programma
             if(u != v) {
                 G.add_edge({u, v});
                 G.add_peso({u, v}, get_rand_double(rf, 1.0, 10.0));

@@ -27,6 +27,8 @@ int main(void)
 {
     // inizializzo i numeri casuali
     randfiller rf;
+    //dobbiamo necessariamente creare un file in cui scrivere gli input casuali da cui generare
+    // il risultato
     string nome_file = "filetestout.txt";
 
     // test su 100 sistemi 
@@ -57,11 +59,13 @@ int main(void)
                 tipo = 'R';
             }
             double val = get_rand_double(rf, 1.0, 50.0);
+            //scriviamo sul file che passeremo alla nostra funzione leggi_circuito
             out << tipo << id_comp++ << " " << val << " " << u << " " << v << "\n";
         }
         out.close();
-
+        //costruiamo il circuito di prova
         auto [circuito, mappa] = leggi_circuito(nome_file);
+        //se (caso poco probabile) non abbiamo resistenza passiamo alla prossima iterazione
         if(circuito.get_resistenze() == 0) continue;
 
         unidirected_graph<int,double> T;
@@ -71,7 +75,9 @@ int main(void)
         for(int nodo : circuito.all_nodes()) {
             if(nodi_visitati.find(nodo) == nodi_visitati.end()) {
                 lifo<int> pila;
+                //calcolo l'albero di questa componente conessa con dfs
                 auto albero = graph_visit(circuito, nodo, pila);
+                //costruisco l'albero T composto da tutti le componenti connesse
                 for(const auto& a : albero.all_edges()) {
                     T.add_edge(a);
                     nodi_visitati.insert(a.from());
@@ -79,19 +85,20 @@ int main(void)
                 }
             }
         }
+        //prendiamo il coalbero da passare alla dfs
         auto coalbero = circuito - T;
-        
+        //calcolo dei cicli con dfs
         auto cicli = dfs_cicli(circuito, T, coalbero);
         if(cicli.empty()) continue;
 
         auto [B, R, v_gen] = creazione_B_R(circuito, cicli);
         
-        // estraggo le tensioni sui rami dal risolutore
+        // estraggo le tensioni sui rami dalla funzione che testiamo
         auto [i_rami, v_rami] = calcola_output(circuito, cicli);
 
         // B^t * v_rami = v_gen
         Eigen::VectorXd kvl = B.transpose() * v_rami;
-        
+        //se i risultati non conincidono vuol dire che la nostra funzione non calcola il giusto output
         if((kvl - v_gen).norm() > 1e-4)
         {
             cout << "Errore\n";

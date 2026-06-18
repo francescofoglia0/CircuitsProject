@@ -1,1 +1,0 @@
-/usr/bin/c++  -Wall -Wshadow -Werror=vla -Wl,--dependency-file=CMakeFiles/test_bfs_depina.dir/link.d CMakeFiles/test_bfs_depina.dir/test_bfs_depina.cpp.o -o test_bfs_depina

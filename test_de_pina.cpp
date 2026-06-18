@@ -24,6 +24,7 @@ int main(void)
     for(int k = 0; k < 100; k++)
     {
         unidirected_graph<int, double> G;
+        //prendiamo un numero di nodi e archi random
         int num_nodi = get_rand_int(rf, 5, 19);
         int num_archi = num_nodi + get_rand_int(rf, 0, 9);
         
@@ -31,19 +32,24 @@ int main(void)
         {
             int u = get_rand_int(rf, 1, num_nodi);
             int v = get_rand_int(rf, 1, num_nodi);
+            //aggiungiamo l'arco solo se i nodi che lo compongono sono diversi
+            //altrimenti il programma da errore in automatico
             if(u != v) G.add_edge({u, v});
         }
-        
+        //se sono in uno sfortunato ma possibile caso in cui l'albero è vuoto (i nodi erano tutti 
+        // uguali a due a due) passo alla prossima iterazione
         if(G.all_nodes().empty()) continue;
         
         unidirected_graph<int, double> T;
         set<int> nodi_visitati;
         
-        // genero l'albero di copertura 
+        // genero l'albero di copertura con la dfs
         for(int nodo : G.all_nodes()) {
             if(nodi_visitati.find(nodo) == nodi_visitati.end()) {
                 lifo<int> pila;
+                //prendo l'albero generato dalla dfs
                 auto albero = graph_visit(G, nodo, pila);
+                //costruisco l'albero T e segno i nodi visitati
                 for(const auto& a : albero.all_edges()) {
                     T.add_edge(a);
                     nodi_visitati.insert(a.from());
@@ -51,7 +57,7 @@ int main(void)
                 }
             }
         }
-        
+        //prendo anche il colabero che dovro passare a de pina
         unidirected_graph<int, double> coalbero = G - T;
         vector<vector<int>> cicli_minimi = de_pina(G, T, coalbero);
         
