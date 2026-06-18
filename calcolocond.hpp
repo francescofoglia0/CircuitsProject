@@ -6,7 +6,9 @@
 #include <iostream>
 
 //in questo file abbiamo usato AI per farci indicare la migliore libreria e funzione di Eigen
-// per calcolare gli autovalori di una matrice definita positiva 
+// per calcolare gli autovalori di una matrice definita positiva
+// in particolare abbiamo utilizzato la libreria:
+//https://libeigen.gitlab.io/eigen/docs-nightly/classEigen_1_1SelfAdjointEigenSolver.html 
 
 //  calcoliamo il numero di condizionamento in norma 2 di una matrice simmetrica
 // definita positiva (A = B^T*R*B) usando il rapporto (|max autovalore|/|min autovalore|)
