@@ -5,6 +5,8 @@
 #include <cmath>
 #include <iostream>
 
+//in questo file abbiamo usato AI per farci indicare la migliore libreria e funzione di Eigen
+// per calcolare gli autovalori di una matrice definita positiva 
 
 //  calcoliamo il numero di condizionamento in norma 2 di una matrice simmetrica
 // definita positiva (A = B^T*R*B) usando il rapporto (|max autovalore|/|min autovalore|)

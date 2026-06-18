@@ -57,7 +57,7 @@ int main(int argc, const char *argv[])
         return 1;
     }
 
-    //gestiamo qui il caso di grafo disconesso, i.e di piu componenti connesse nel grafo
+    //gestiamo qui il caso di piu componenti connesse nel grafo
     unidirected_graph<int,double> T; // Inizializziamo un grafo vuoto
     std::set<int> nodi_visitati; //qui salviamo tutti i nodi che visitiamo man mano
 
