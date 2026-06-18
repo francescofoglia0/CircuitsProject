@@ -22,7 +22,7 @@ std::tuple<Eigen::MatrixXd,Eigen::MatrixXd,Eigen::VectorXd> creazione_B_R(const 
         double somma_generatore = 0;
         //bool per controllo per i cicli fatti di soli generatori
         bool maglia_ha_resistenza = false;
-        //sto confrontando con size di una matrice eigen (ha segno anche negativo)       
+        //size t :sto confrontando con size di una matrice eigen (ha segno anche negativo)       
         for(size_t j = 0; j<C[i].size()-1; j++)
         {
             unidirected_edge<int> arco_copia = {C[i][j],C[i][j+1]};
