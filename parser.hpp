@@ -71,13 +71,7 @@ std::pair<unidirected_graph<int, double>,std::map<std::string,std::string>> legg
             }
 
             // se arriviamo qui, i dati sono corretti
-            // creiamo l'arco passandogli i nodi e il nome (se è invertito verrà controllato
-            // automaticamente nella classe edge)
-            // unidirected_edge<int> arco(nodo1, nodo2, nome_comp);
-            // circuito.add_edge(arco);
-            // circuito.add_peso(arco, valore);
-            
-            // // Memorizziamo il nome per evitare duplicati futuri
+            // memorizziamo il nome per evitare duplicati futuri
             nomi_visti.insert(nome_comp);
 
             componenti.push_back({nome_comp,valore,nodo1,nodo2});
