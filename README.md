@@ -1,85 +1,89 @@
 # C++ Object-Oriented Circuit Solver
 
-Un simulatore di circuiti elettrici basato su architettura Object-Oriented e scritto in **C++17 moderno**. 
+![C++](https://img.shields.io/badge/c++-%2300599C.svg?style=for-the-badge&logo=c%2B%2B&logoColor=white)
+![CMake](https://img.shields.io/badge/CMake-%23008FBA.svg?style=for-the-badge&logo=cmake&logoColor=white)
+![Eigen](https://img.shields.io/badge/Eigen3-Computational_Math-blue?style=for-the-badge)
 
-Questo progetto analizza topologie di circuiti elettrici utilizzando l'**Analisi Nodale Modificata (MNA)** per assemblare il sistema lineare sottostante (Ax = b). Il sistema viene poi risolto in modo efficiente utilizzando un'implementazione personalizzata dell'algoritmo del **Gradiente Coniugato (CG)**, ottimizzato tramite le strutture dati della libreria **Eigen3**.
+An Object-Oriented electrical circuit simulator written in **modern C++17**. 
 
-## Funzionalità Principali
+This project parses and models electrical circuit topologies using **Modified Nodal Analysis (MNA)** to assemble the underlying linear system ($Ax = b$). The system is then efficiently solved using a custom-built implementation of the **Conjugate Gradient (CG)** algorithm, optimized via **Eigen3** data structures.
 
-*   **Paradigma RAII e Memory Safety:** Gestione dinamica dei componenti del circuito tramite `std::unique_ptr`. La memoria viene allocata e deallocata automaticamente, garantendo l'assenza totale di memory leak (validato tramite AddressSanitizer).
-*   **Architettura Object-Oriented:** Design polimorfico con una classe base `Component` facilmente estendibile per supportare resistori, condensatori, induttori e generatori.
-*   **Risolutore Numerico Custom:** Implementazione da zero del metodo iterativo del Gradiente Coniugato per la risoluzione del sistema lineare, ideale per matrici di grandi dimensioni (sparse).
-*   **Build System Robusto:** Configurato con **CMake**, include opzioni per la compilazione con massima ottimizzazione (`-O3`) e profiling della memoria (`-fsanitize=address`).
+## Main Features
 
-## Prerequisiti
+*   **RAII Paradigm & Memory Safety:** Dynamic management of circuit components via `std::unique_ptr`. Memory is automatically allocated and deallocated, guaranteeing zero memory leaks (strictly validated via AddressSanitizer).
+*   **Object-Oriented Architecture:** Polymorphic design featuring a base `Component` class, easily extensible to support resistors, capacitors, inductors, and voltage/current sources.
+*   **Custom Numerical Solver:** Built-from-scratch implementation of the Conjugate Gradient iterative method for solving the linear system, highly efficient for large-scale sparse matrices.
+*   **Robust Build System:** Configured with **CMake**, including dedicated flags for maximum compiler optimization (`-O3`) and memory profiling (`-fsanitize=address`).
 
-Per compilare ed eseguire il progetto, assicurati di avere installati nel tuo sistema:
+## Prerequisites
 
-*   Un compilatore che supporti **C++17** (GCC, Clang o MSVC)
-*   **CMake** (versione 3.20 o superiore)
-*   Libreria **Eigen3** (per l'algebra lineare)
+To build and run the project, ensure you have the following installed on your system:
 
-## Compilazione ed Esecuzione
+*   A compiler supporting **C++17** (GCC, Clang, or MSVC)
+*   **CMake** (version 3.20 or higher)
+*   **Eigen3** library (for linear algebra operations)
 
-Il progetto utilizza CMake come sistema di build. Segui questi step per compilare il codice:
+## Build and Run
 
-1. Clona il repository e naviga nella cartella del progetto:
+The project uses CMake as its build system. Follow these steps to compile the code:
+
+1. Clone the repository and navigate to the project directory:
    ```bash
-   git clone [https://github.com/tuo-username/circuit-solver.git](https://github.com/tuo-username/circuit-solver.git)
-   cd circuit-solver
+   git clone [https://github.com/francescofoglia0/circuitsproject.git](https://github.com/francescofoglia0/circuitsproject.git)
+   cd circuitsproject
    ```
 
-2. Crea una directory di build ed esegui CMake:
+2. Create a build directory and run CMake:
    ```bash
    mkdir build
    cd build
    cmake ..
    ```
-   *(Nota: AddressSanitizer è abilitato di default. Per disabilitarlo per test di performance pure, usa `cmake .. -DENABLE_ASAN=OFF`)*
+   *(Note: AddressSanitizer is enabled by default. To disable it for pure performance benchmarking, use `cmake .. -DENABLE_ASAN=OFF`)*
 
-3. Compila il progetto:
+3. Compile the project:
    ```bash
    make
    ```
 
-4. Esegui il simulatore:
+4. Run the simulator:
    ```bash
    ./circuit_sim
    ```
 
-## Esempio di Utilizzo (API)
+## Usage Example (API)
 
-L'interfaccia utente è progettata per essere intuitiva. Ecco come definire un circuito e calcolare le tensioni nodali:
+The API is designed to be intuitive. Here is how to define a circuit and compute nodal voltages:
 
 ```cpp
 #include "Circuit.hpp"
 
 int main() {
-    // 1. Inizializza un circuito con 2 nodi (il nodo 0 è sempre la massa/GND)
+    // 1. Initialize a circuit with 2 nodes (Node 0 is always Ground/GND)
     Circuit myCircuit(2);
 
-    // 2. Costruisci la topologia
-    myCircuit.addResistor(1, 0, 10.0); // Resistor da 10Ω tra Nodo 1 e GND
-    myCircuit.addResistor(1, 2, 5.0);  // Resistor da 5Ω tra Nodo 1 e Nodo 2
-    myCircuit.addResistor(2, 0, 20.0); // Resistor da 20Ω tra Nodo 2 e GND
+    // 2. Build the network topology
+    myCircuit.addResistor(1, 0, 10.0); // 10Ω resistor between Node 1 and GND
+    myCircuit.addResistor(1, 2, 5.0);  // 5Ω resistor between Node 1 and Node 2
+    myCircuit.addResistor(2, 0, 20.0); // 20Ω resistor between Node 2 and GND
 
-    // 3. Inserisci i generatori
-    myCircuit.addCurrentSource(1, 2.0); // Generatore di corrente da 2A nel Nodo 1
+    // 3. Add power sources
+    myCircuit.addCurrentSource(1, 2.0); // 2A current source at Node 1
 
-    // 4. Risolvi il sistema
+    // 4. Solve the system
     Eigen::VectorXd node_voltages = myCircuit.solve();
     
     return 0;
 }
 ```
 
-## Struttura del Progetto
+## Project Structure
 
-*   `CMakeLists.txt`: Configurazione del sistema di build, linking di Eigen3 e flag di compilazione.
-*   `Circuit.hpp`: Strutture dati Object-Oriented (`Component`, `Resistor`, `Circuit`) e logica di assemblaggio della matrice MNA.
-*   `Solver.hpp`: Namespace matematico contenente l'algoritmo del Gradiente Coniugato.
-*   `main.cpp`: Entry point dell'applicazione, setup della topologia di test e stampa dei risultati.
+*   `CMakeLists.txt`: Build system configuration, Eigen3 linking, and compiler flags setup.
+*   `Circuit.hpp`: Object-Oriented data structures (`Component`, `Resistor`, `Circuit`) and MNA matrix assembly logic.
+*   `Solver.hpp`: Mathematical namespace containing the custom Conjugate Gradient algorithm.
+*   `main.cpp`: Application entry point, test topology setup, and results output.
 
-## Contesto Accademico
+## Academic Context
 
-Progetto sviluppato come applicazione pratica dei concetti di ingegneria del software e calcolo scientifico (Politecnico di Torino). Le aree di focus includono: principi SOLID in C++, smart pointers, complessità computazionale degli algoritmi iterativi e High Performance Computing (HPC).
+This project was developed as a practical application of software engineering and scientific computing concepts during my BSc in Mathematical Engineering at Politecnico di Torino. Key focus areas include: SOLID principles in modern C++, smart pointers, computational complexity of iterative algorithms, and High-Performance Computing (HPC) practices.
